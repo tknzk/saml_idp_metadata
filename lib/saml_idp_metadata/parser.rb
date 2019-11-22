@@ -1,3 +1,5 @@
+require 'active_support/core_ext'
+
 module SamlIdpMetadata
   class Parser
     attr_reader :xml, :xmlns, :entity_id, :http_redirect_url, :http_post_url, :slo_url, :x509_certificate
@@ -28,6 +30,25 @@ module SamlIdpMetadata
       @x509_certificate = parse_x509_certificate
 
       self
+    end
+
+    def validate_xmlns
+      xmlns == 'urn:oasis:names:tc:SAML:2.0:metadata'
+    end
+
+    def ensure_params?
+      entity_id.present? && http_redirect_url.present? && http_post_url.present? && x509_certificate.present?
+    end
+
+    def build_params
+      {
+        issuer_url: entity_id,
+        redirect_url: http_redirect_url,
+        post_url: http_post_url,
+        certificate: x509_certificate,
+        slo_url: slo_url,
+        metadata: xml
+      }
     end
 
     private
