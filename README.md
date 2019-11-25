@@ -1,8 +1,8 @@
 # SamlIdpMetadata
+[ ![](https://img.shields.io/gem/v/saml_idp_metadata.svg)](https://rubygems.org/gems/saml_idp_metadata) [ ![](https://img.shields.io/gem/dt/saml_idp_metadata.svg)](https://rubygems.org/gems/saml_idp_metadata)
+[![CircleCI](https://circleci.com/gh/tknzk/saml_idp_metadata.svg?style=svg)](https://circleci.com/gh/tknzk/saml_idp_metadata)
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/saml_idp_metadata`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+SAML IdP metadata parser.
 
 ## Installation
 
@@ -22,7 +22,29 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Basic one:
+
+```ruby
+# validate_xmlsn
+
+xml = File.read('./idp_metadata.xml')
+
+SamlIdpMetadata::Parser.call(xml: xml).validate_xmlns
+```
+
+```ruby
+# ensure_params?
+xml = File.read('./idp_metadata.xml')
+
+SamlIdpMetadata::Parser.call(xml: xml).ensure_params?
+```
+
+```ruby
+# build_params
+xml = File.read('./idp_metadata.xml')
+
+SamlIdpMetadata::Parser.call(xml: xml).build_params
+```
 
 ## Development
 
