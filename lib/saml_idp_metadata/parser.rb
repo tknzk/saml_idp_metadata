@@ -1,8 +1,12 @@
-require 'active_support/core_ext'
+# frozen_string_literal: true
 
+require 'active_support/core_ext'
 module SamlIdpMetadata
+  #
+  # SAML IdP metadata parser
+  #
   class Parser
-    attr_reader :xml, :xmlns, :entity_id, :http_redirect_url, :http_post_url, :slo_url, :x509_certificate
+    attr_reader :xml, :xmlns, :entity_id, :sso_http_redirect_url, :sso_http_post_url, :slo_url, :x509_certificate
 
     def initialize(xml:)
       @xml = xml
@@ -10,8 +14,8 @@ module SamlIdpMetadata
 
       @xmlns = nil
       @entity_id = nil
-      @http_redirect_url = nil
-      @http_post_url = nil
+      @sso_http_redirect_url = nil
+      @sso_http_post_url = nil
       @slo_url = nil
       @x509_certificate = nil
     end
@@ -24,8 +28,8 @@ module SamlIdpMetadata
       @xmlns = parse_xmlns
 
       @entity_id = parse_entity_id
-      @http_redirect_url = parse_http_redirect_url
-      @http_post_url = parse_http_post_url
+      @sso_http_redirect_url = parse_sso_http_redirect_url
+      @sso_http_post_url = parse_sso_http_post_url
       @slo_url = parse_slo_url
       @x509_certificate = parse_x509_certificate
 
@@ -37,14 +41,14 @@ module SamlIdpMetadata
     end
 
     def ensure_params?
-      entity_id.present? && http_redirect_url.present? && http_post_url.present? && x509_certificate.present?
+      entity_id.present? && (sso_http_redirect_url.present? && sso_http_post_url.present?) && x509_certificate.present?
     end
 
     def build_params
       {
-        issuer_url: entity_id,
-        redirect_url: http_redirect_url,
-        post_url: http_post_url,
+        entity_id: entity_id,
+        sso_http_redirect_url: sso_http_redirect_url,
+        sso_http_post_url: sso_http_post_url,
         certificate: x509_certificate,
         slo_url: slo_url,
         metadata: xml
@@ -65,20 +69,24 @@ module SamlIdpMetadata
       entity_descriptor.key?('xmlns:md') ? entity_descriptor['xmlns:md'] : entity_descriptor['xmlns']
     end
 
-    def parse_http_redirect_url
+    def parse_sso_http_redirect_url
       return nil if entity_descriptor.dig('IDPSSODescriptor', 'SingleSignOnService').nil?
+
       single_signon_services = entity_descriptor['IDPSSODescriptor']['SingleSignOnService']
-      return single_signon_services['Location'] if single_signon_services.kind_of?(Hash)
+
+      return single_signon_services['Location'] if single_signon_services.is_a?(Hash)
 
       single_signon_services.each do |service|
         return service['Location'] if service['Binding'] == 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect'
       end
     end
 
-    def parse_http_post_url
+    def parse_sso_http_post_url
       return nil if entity_descriptor.dig('IDPSSODescriptor', 'SingleSignOnService').nil?
+
       single_signon_services = entity_descriptor['IDPSSODescriptor']['SingleSignOnService']
-      return single_signon_services['Location'] if single_signon_services.kind_of?(Hash)
+
+      return single_signon_services['Location'] if single_signon_services.is_a?(Hash)
 
       single_signon_services.each do |service|
         return service['Location'] if service['Binding'] == 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST'
@@ -87,21 +95,21 @@ module SamlIdpMetadata
 
     def parse_slo_url
       return nil if entity_descriptor.dig('IDPSSODescriptor', 'SingleLogoutService').nil?
+
       single_logout_services = entity_descriptor['IDPSSODescriptor']['SingleLogoutService']
 
-      if single_logout_services.class == Array
-        single_logout_services.each do |service|
-          return service['Location'] if service['Binding'] == 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect'
-        end
-      else
-        return single_logout_services['Location'] if single_logout_services['Binding'] == 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect'
+      return single_logout_services['Location'] if single_logout_services.is_a?(Hash)
+
+      single_logout_services.each do |service|
+        return service['Location'] if service['Binding'] == 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect'
       end
     end
 
     def parse_x509_certificate
       return nil if entity_descriptor.dig('IDPSSODescriptor', 'KeyDescriptor').nil?
+
       if entity_descriptor['IDPSSODescriptor']['KeyDescriptor'].class == Array
-        entity_descriptor['IDPSSODescriptor']['KeyDescriptor'][1]['KeyInfo']['X509Data']['X509Certificate']
+        entity_descriptor['IDPSSODescriptor']['KeyDescriptor'].last['KeyInfo']['X509Data']['X509Certificate']
       else
         entity_descriptor['IDPSSODescriptor']['KeyDescriptor']['KeyInfo']['X509Data']['X509Certificate']
       end
