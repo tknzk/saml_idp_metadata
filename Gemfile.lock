@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    saml_idp_metadata (0.1.1)
+    saml_idp_metadata (0.1.2)
       activesupport
 
 GEM
