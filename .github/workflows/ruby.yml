@@ -17,4 +17,5 @@ jobs:
       run: |
         gem install bundler -v 2.0.2
         bundle install
+        bundle exec rubocop
         bundle exec rake
