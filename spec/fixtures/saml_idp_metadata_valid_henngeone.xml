@@ -1,4 +1,4 @@
-<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://ap.ssso.hdems.com/sso/hengeone.example.com">
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://ap.ssso.hdems.com/sso/henngeone.example.com">
   <IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
     <KeyDescriptor>
       <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
@@ -8,7 +8,7 @@
       </ds:KeyInfo>
     </KeyDescriptor>
     <NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</NameIDFormat>
-    <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://ap.ssso.hdems.com/sso/hengeone.example.com/login"/>
+    <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://ap.ssso.hdems.com/sso/henngeone.example.com/login"/>
   </IDPSSODescriptor>
   <Organization>
     <OrganizationName xml:lang="en">HENNGE K.K.</OrganizationName>
