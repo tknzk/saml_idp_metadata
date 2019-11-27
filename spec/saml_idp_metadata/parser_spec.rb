@@ -48,9 +48,9 @@ describe SamlIdpMetadata::Parser do
       it { is_expected.to eq 'https://accounts.google.com/o/saml2?idpid=xxxxxx' }
     end
 
-    context 'when valid xml w/ sso single sign on service has 1 element. (like a HENGE ONE xml metadata)' do
-      let(:xml) { File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid_hengeone.xml')) }
-      it { is_expected.to eq 'https://ap.ssso.hdems.com/sso/hengeone.example.com' }
+    context 'when valid xml w/ sso single sign on service has 1 element. (like a HENNGE ONE xml metadata)' do
+      let(:xml) { File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid_henngeone.xml')) }
+      it { is_expected.to eq 'https://ap.ssso.hdems.com/sso/henngeone.example.com' }
     end
 
     context 'when valid xml w/ sol url not exists (like a Okta xml metadata)' do
@@ -82,9 +82,9 @@ describe SamlIdpMetadata::Parser do
       it { is_expected.to eq 'https://accounts.google.com/o/saml2/idp?idpid=xxxxxx' }
     end
 
-    context 'when valid xml w/ sso single sign on service has 1 element. (like a HENGE ONE xml metadata)' do
-      let(:xml) { File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid_hengeone.xml')) }
-      it { is_expected.to eq 'https://ap.ssso.hdems.com/sso/hengeone.example.com/login' }
+    context 'when valid xml w/ sso single sign on service has 1 element. (like a HENNGE ONE xml metadata)' do
+      let(:xml) { File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid_henngeone.xml')) }
+      it { is_expected.to eq 'https://ap.ssso.hdems.com/sso/henngeone.example.com/login' }
     end
 
     context 'when valid xml w/ sol url not exists (like a Okta xml metadata)' do
@@ -116,9 +116,9 @@ describe SamlIdpMetadata::Parser do
       it { is_expected.to eq 'https://accounts.google.com/o/saml2/idp?idpid=xxxxxx' }
     end
 
-    context 'when valid xml w/ sso single sign on service has 1 element. (like a HENGE ONE xml metadata)' do
-      let(:xml) { File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid_hengeone.xml')) }
-      it { is_expected.to eq 'https://ap.ssso.hdems.com/sso/hengeone.example.com/login' }
+    context 'when valid xml w/ sso single sign on service has 1 element. (like a HENNGE ONE xml metadata)' do
+      let(:xml) { File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid_henngeone.xml')) }
+      it { is_expected.to eq 'https://ap.ssso.hdems.com/sso/henngeone.example.com/login' }
     end
 
     context 'when valid xml w/ sol url not exists (like a Okta xml metadata)' do
@@ -150,8 +150,8 @@ describe SamlIdpMetadata::Parser do
       it { is_expected.to eq 'Certificate001-Certificate001=' }
     end
 
-    context 'when valid xml w/ sso single sign on service has 1 element. (like a HENGE ONE xml metadata)' do
-      let(:xml) { File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid_hengeone.xml')) }
+    context 'when valid xml w/ sso single sign on service has 1 element. (like a HENNGE ONE xml metadata)' do
+      let(:xml) { File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid_henngeone.xml')) }
       it { is_expected.to eq 'Certificate000-Certificate000' }
     end
 
@@ -184,8 +184,8 @@ describe SamlIdpMetadata::Parser do
       it { is_expected.to eq nil }
     end
 
-    context 'when valid xml w/ sso single sign on service has 1 element. (like a HENGE ONE xml metadata)' do
-      let(:xml) { File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid_hengeone.xml')) }
+    context 'when valid xml w/ sso single sign on service has 1 element. (like a HENNGE ONE xml metadata)' do
+      let(:xml) { File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid_henngeone.xml')) }
       it { is_expected.to eq nil }
     end
 
@@ -244,12 +244,12 @@ describe SamlIdpMetadata::Parser do
       }
     end
 
-    context 'when valid xml w/ sso single sign on service has 1 element. (like a HENGE ONE xml metadata)' do
-      let(:xml) { File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid_hengeone.xml')) }
+    context 'when valid xml w/ sso single sign on service has 1 element. (like a HENNGE ONE xml metadata)' do
+      let(:xml) { File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid_henngeone.xml')) }
       it {
-        is_expected.to include(entity_id: 'https://ap.ssso.hdems.com/sso/hengeone.example.com',
-                               sso_http_redirect_url: 'https://ap.ssso.hdems.com/sso/hengeone.example.com/login',
-                               sso_http_post_url: 'https://ap.ssso.hdems.com/sso/hengeone.example.com/login',
+        is_expected.to include(entity_id: 'https://ap.ssso.hdems.com/sso/henngeone.example.com',
+                               sso_http_redirect_url: 'https://ap.ssso.hdems.com/sso/henngeone.example.com/login',
+                               sso_http_post_url: 'https://ap.ssso.hdems.com/sso/henngeone.example.com/login',
                                certificate: 'Certificate000-Certificate000',
                                slo_url: nil,
                                metadata: xml)
