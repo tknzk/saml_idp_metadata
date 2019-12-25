@@ -3,7 +3,7 @@ name: Ruby
 on: [push]
 
 jobs:
-  ruby26:
+  ruby25:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
