@@ -3,7 +3,7 @@ version: 2
 jobs:
   ruby-2.5:
     docker:
-      - image: ruby:2.5.7
+      - image: rubylang/ruby:2.5.7-bionic
     steps:
       - checkout
       - run: gem install bundler
@@ -12,7 +12,7 @@ jobs:
       - run: bundle exec rake
   ruby-2.6:
     docker:
-      - image: ruby:2.6.5
+      - image: rubylang/ruby:2.6.5-bionic
     steps:
       - checkout
       - run: gem install bundler
@@ -22,7 +22,7 @@ jobs:
 
   ruby-2.7:
     docker:
-      - image: ruby:2.7.0
+      - image: rubylang/ruby:2.7.0-bionic
     steps:
       - checkout
       - run: gem install bundler
