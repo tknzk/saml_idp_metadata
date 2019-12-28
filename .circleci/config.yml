@@ -5,6 +5,10 @@ jobs:
     docker:
       - image: rubylang/ruby:2.5.7-bionic
     steps:
+      - run:
+          name: Install System Dependencies
+          # https://circleci.com/docs/2.0/custom-images/#required-tools-for-primary-containers
+          command: apt-get update -y && apt-get install -y ssh
       - checkout
       - run: gem install bundler --no-document --force
       - run: bundle install
@@ -14,6 +18,10 @@ jobs:
     docker:
       - image: rubylang/ruby:2.6.5-bionic
     steps:
+      - run:
+          name: Install System Dependencies
+          # https://circleci.com/docs/2.0/custom-images/#required-tools-for-primary-containers
+          command: apt-get update -y && apt-get install -y ssh
       - checkout
       - run: gem install bundler --no-document
       - run: bundle install
@@ -24,6 +32,10 @@ jobs:
     docker:
       - image: rubylang/ruby:2.7.0-bionic
     steps:
+      - run:
+          name: Install System Dependencies
+          # https://circleci.com/docs/2.0/custom-images/#required-tools-for-primary-containers
+          command: apt-get update -y && apt-get install -y ssh
       - checkout
       - run: gem install bundler --no-document
       - run: bundle install
