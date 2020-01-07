@@ -7,6 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
+        ruby:
         # https://hub.docker.com/r/rubylang/ruby
         - '2.5-bionic'
         - '2.6-bionic'
