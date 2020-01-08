@@ -1,6 +1,8 @@
 # SAML IdP Metadata Parser
 [ ![](https://img.shields.io/gem/v/saml_idp_metadata.svg)](https://rubygems.org/gems/saml_idp_metadata) [ ![](https://img.shields.io/gem/dt/saml_idp_metadata.svg)](https://rubygems.org/gems/saml_idp_metadata)
 [![CircleCI](https://circleci.com/gh/tknzk/saml_idp_metadata.svg?style=svg)](https://circleci.com/gh/tknzk/saml_idp_metadata)
+[![Build Status](https://github.com/tknzk/saml_idp_metadata/workflows/Ruby/badge.svg)](https://github.com/tknzk/saml_idp_metadata/actions?query=workflow%3ARuby)
+
 
 Parser for SAML IdP metadata
 
