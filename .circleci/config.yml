@@ -1,7 +1,7 @@
 version: 2.1
 
 executors:
-  working_directory: /root/jpostcode-rb
+  working_directory: /root/saml_idp_metadata
   ruby_2_7:
     docker:
       - image: rubylang/ruby:2.7.0-bionic
