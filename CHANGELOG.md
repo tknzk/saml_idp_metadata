@@ -1,5 +1,27 @@
 # Changelog
 
+## [v0.1.4](https://github.com/tknzk/saml_idp_metadata/tree/v0.1.4) (2020-01-11)
+
+[Full Changelog](https://github.com/tknzk/saml_idp_metadata/compare/v0.1.3...v0.1.4)
+
+**Merged pull requests:**
+
+- bumpup [\#20](https://github.com/tknzk/saml_idp_metadata/pull/20) ([tknzk](https://github.com/tknzk))
+- bundle update [\#19](https://github.com/tknzk/saml_idp_metadata/pull/19) ([tknzk](https://github.com/tknzk))
+- fix working\_dir [\#18](https://github.com/tknzk/saml_idp_metadata/pull/18) ([tknzk](https://github.com/tknzk))
+- add build status badge [\#17](https://github.com/tknzk/saml_idp_metadata/pull/17) ([tknzk](https://github.com/tknzk))
+- Modified GitHub workflow [\#16](https://github.com/tknzk/saml_idp_metadata/pull/16) ([tknzk](https://github.com/tknzk))
+- Modified circleci config [\#15](https://github.com/tknzk/saml_idp_metadata/pull/15) ([tknzk](https://github.com/tknzk))
+- Bump rubocop from 0.78.0 to 0.79.0 [\#14](https://github.com/tknzk/saml_idp_metadata/pull/14) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- rename [\#13](https://github.com/tknzk/saml_idp_metadata/pull/13) ([tknzk](https://github.com/tknzk))
+- bundler ~\> 2 [\#12](https://github.com/tknzk/saml_idp_metadata/pull/12) ([tknzk](https://github.com/tknzk))
+- add system dependencies on circleci [\#10](https://github.com/tknzk/saml_idp_metadata/pull/10) ([tknzk](https://github.com/tknzk))
+- bumpup parser 2.6.5.0 to 2.7.0.0 [\#9](https://github.com/tknzk/saml_idp_metadata/pull/9) ([tknzk](https://github.com/tknzk))
+- Ruby 2.7.0 [\#8](https://github.com/tknzk/saml_idp_metadata/pull/8) ([tknzk](https://github.com/tknzk))
+- change email [\#7](https://github.com/tknzk/saml_idp_metadata/pull/7) ([tknzk](https://github.com/tknzk))
+- add changelog [\#6](https://github.com/tknzk/saml_idp_metadata/pull/6) ([tknzk](https://github.com/tknzk))
+- Modified spec & bumpup [\#1](https://github.com/tknzk/saml_idp_metadata/pull/1) ([tknzk](https://github.com/tknzk))
+
 ## [v0.1.3](https://github.com/tknzk/saml_idp_metadata/tree/v0.1.3) (2019-11-27)
 
 [Full Changelog](https://github.com/tknzk/saml_idp_metadata/compare/v0.1.2...v0.1.3)
@@ -21,10 +43,6 @@
 ## [v0.1.1](https://github.com/tknzk/saml_idp_metadata/tree/v0.1.1) (2019-11-25)
 
 [Full Changelog](https://github.com/tknzk/saml_idp_metadata/compare/v0.1.0...v0.1.1)
-
-**Merged pull requests:**
-
-- Modified spec & bumpup [\#1](https://github.com/tknzk/saml_idp_metadata/pull/1) ([tknzk](https://github.com/tknzk))
 
 ## [v0.1.0](https://github.com/tknzk/saml_idp_metadata/tree/v0.1.0) (2019-11-25)
 
