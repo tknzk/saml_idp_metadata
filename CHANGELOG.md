@@ -1,5 +1,28 @@
 # Changelog
 
+## [v0.1.6](https://github.com/tknzk/saml_idp_metadata/tree/v0.1.6) (2020-05-19)
+
+[Full Changelog](https://github.com/tknzk/saml_idp_metadata/compare/v0.1.5...v0.1.6)
+
+**Security fixes:**
+
+- \[Security\] Bump activesupport from 6.0.3 to 6.0.3.1 [\#50](https://github.com/tknzk/saml_idp_metadata/pull/50) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+
+**Merged pull requests:**
+
+- bumpup 0.1.6 [\#52](https://github.com/tknzk/saml_idp_metadata/pull/52) ([tknzk](https://github.com/tknzk))
+- Bump minitest from 5.14.0 to 5.14.1 [\#51](https://github.com/tknzk/saml_idp_metadata/pull/51) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump rubocop from 0.82.0 to 0.83.0 [\#49](https://github.com/tknzk/saml_idp_metadata/pull/49) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump rspec-expectations from 3.9.1 to 3.9.2 [\#48](https://github.com/tknzk/saml_idp_metadata/pull/48) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump activesupport from 6.0.2.2 to 6.0.3 [\#47](https://github.com/tknzk/saml_idp_metadata/pull/47) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump rspec-support from 3.9.2 to 3.9.3 [\#46](https://github.com/tknzk/saml_idp_metadata/pull/46) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump rspec-core from 3.9.1 to 3.9.2 [\#45](https://github.com/tknzk/saml_idp_metadata/pull/45) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump parser from 2.7.1.1 to 2.7.1.2 [\#44](https://github.com/tknzk/saml_idp_metadata/pull/44) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump rubocop from 0.81.0 to 0.82.0 [\#43](https://github.com/tknzk/saml_idp_metadata/pull/43) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump parser from 2.7.1.0 to 2.7.1.1 [\#42](https://github.com/tknzk/saml_idp_metadata/pull/42) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump pry from 0.13.0 to 0.13.1 [\#41](https://github.com/tknzk/saml_idp_metadata/pull/41) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- update changelog [\#40](https://github.com/tknzk/saml_idp_metadata/pull/40) ([tknzk](https://github.com/tknzk))
+
 ## [v0.1.5](https://github.com/tknzk/saml_idp_metadata/tree/v0.1.5) (2020-04-08)
 
 [Full Changelog](https://github.com/tknzk/saml_idp_metadata/compare/v0.1.4...v0.1.5)
@@ -46,7 +69,7 @@
 - Ruby 2.7.0 [\#8](https://github.com/tknzk/saml_idp_metadata/pull/8) ([tknzk](https://github.com/tknzk))
 - change email [\#7](https://github.com/tknzk/saml_idp_metadata/pull/7) ([tknzk](https://github.com/tknzk))
 - add changelog [\#6](https://github.com/tknzk/saml_idp_metadata/pull/6) ([tknzk](https://github.com/tknzk))
-- bumpup [\#5](https://github.com/tknzk/saml_idp_metadata/pull/5) ([tknzk](https://github.com/tknzk))
+- ruby 2.5.x , bundler 2.0.2 [\#4](https://github.com/tknzk/saml_idp_metadata/pull/4) ([tknzk](https://github.com/tknzk))
 
 ## [v0.1.3](https://github.com/tknzk/saml_idp_metadata/tree/v0.1.3) (2019-11-27)
 
@@ -54,7 +77,7 @@
 
 **Merged pull requests:**
 
-- ruby 2.5.x , bundler 2.0.2 [\#4](https://github.com/tknzk/saml_idp_metadata/pull/4) ([tknzk](https://github.com/tknzk))
+- bumpup [\#5](https://github.com/tknzk/saml_idp_metadata/pull/5) ([tknzk](https://github.com/tknzk))
 - fix a typo [\#3](https://github.com/tknzk/saml_idp_metadata/pull/3) ([tknzk](https://github.com/tknzk))
 
 ## [v0.1.2](https://github.com/tknzk/saml_idp_metadata/tree/v0.1.2) (2019-11-25)
