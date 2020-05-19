@@ -179,6 +179,11 @@ describe SamlIdpMetadata::Parser do
       it { is_expected.to eq 'https://example.com/saml2/http-redirect/slo/99999' }
     end
 
+    context 'when valid xml w/ multiple singlelogout line' do
+      let(:xml) { File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid_multiple_slo.xml')) }
+      it { is_expected.to eq 'https://example.com/saml2/http-redirect/slo/99999' }
+    end
+
     context 'when valid xml w/ multiple X509Certificate (like a G Suite xml metadata)' do
       let(:xml) { File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid_gsuite.xml')) }
       it { is_expected.to eq nil }
