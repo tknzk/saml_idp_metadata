@@ -47,6 +47,8 @@ jobs:
       - checkout
       - bundle_gems
       - run_tests
+      - store_artifacts:
+        path: coverage
 
   run_tests_on_ruby_2_6:
     executor: ruby_2_6
@@ -55,6 +57,8 @@ jobs:
       - checkout
       - bundle_gems
       - run_tests
+      - store_artifacts:
+        path: coverage
 
   run_tests_on_ruby_2_5:
     executor: ruby_2_5
@@ -63,6 +67,8 @@ jobs:
       - checkout
       - bundle_gems
       - run_tests
+      - store_artifacts:
+        path: coverage
 
 workflows:
   version: 2
