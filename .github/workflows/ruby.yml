@@ -24,9 +24,3 @@ jobs:
           bundle install
           bundle exec rubocop
           bundle exec rake
-      - name: Upload coverage results
-        uses: actions/upload-artifact@master
-        if: always()
-        with:
-        name: coverage-report
-        path: coverage
