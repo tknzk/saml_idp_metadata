@@ -38,6 +38,8 @@ commands:
           command: |
             bundle exec rake
             bundle exec rubocop
+      - store_artifacts:
+          path: coverage
 
 jobs:
   run_tests_on_ruby_2_7:
