@@ -1,5 +1,32 @@
 # Changelog
 
+## [v0.1.7](https://github.com/tknzk/saml_idp_metadata/tree/v0.1.7) (2020-07-02)
+
+[Full Changelog](https://github.com/tknzk/saml_idp_metadata/compare/v0.1.6...v0.1.7)
+
+**Merged pull requests:**
+
+- bumpup [\#74](https://github.com/tknzk/saml_idp_metadata/pull/74) ([tknzk](https://github.com/tknzk))
+- Bump zeitwerk from 2.3.0 to 2.3.1 [\#72](https://github.com/tknzk/saml_idp_metadata/pull/72) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump diff-lcs from 1.4.2 to 1.4.3 [\#71](https://github.com/tknzk/saml_idp_metadata/pull/71) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump rubocop-ast from 0.0.3 to 0.1.0 [\#70](https://github.com/tknzk/saml_idp_metadata/pull/70) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump diff-lcs from 1.4.1 to 1.4.2 [\#69](https://github.com/tknzk/saml_idp_metadata/pull/69) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump diff-lcs from 1.3 to 1.4.1 [\#68](https://github.com/tknzk/saml_idp_metadata/pull/68) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump rubocop from 0.85.1 to 0.86.0 [\#67](https://github.com/tknzk/saml_idp_metadata/pull/67) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump parser from 2.7.1.3 to 2.7.1.4 [\#66](https://github.com/tknzk/saml_idp_metadata/pull/66) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump parallel from 1.19.1 to 1.19.2 [\#65](https://github.com/tknzk/saml_idp_metadata/pull/65) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump activesupport from 6.0.3.1 to 6.0.3.2 [\#64](https://github.com/tknzk/saml_idp_metadata/pull/64) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump ast from 2.4.0 to 2.4.1 [\#63](https://github.com/tknzk/saml_idp_metadata/pull/63) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump rubocop from 0.85.0 to 0.85.1 [\#62](https://github.com/tknzk/saml_idp_metadata/pull/62) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump i18n from 1.8.2 to 1.8.3 [\#60](https://github.com/tknzk/saml_idp_metadata/pull/60) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump rubocop from 0.84.0 to 0.85.0 [\#59](https://github.com/tknzk/saml_idp_metadata/pull/59) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump coderay from 1.1.2 to 1.1.3 [\#58](https://github.com/tknzk/saml_idp_metadata/pull/58) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump parser from 2.7.1.2 to 2.7.1.3 [\#57](https://github.com/tknzk/saml_idp_metadata/pull/57) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump rubocop from 0.83.0 to 0.84.0 [\#56](https://github.com/tknzk/saml_idp_metadata/pull/56) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- remvoe codecov [\#55](https://github.com/tknzk/saml_idp_metadata/pull/55) ([tknzk](https://github.com/tknzk))
+- add simplecov [\#54](https://github.com/tknzk/saml_idp_metadata/pull/54) ([tknzk](https://github.com/tknzk))
+- update changelog [\#53](https://github.com/tknzk/saml_idp_metadata/pull/53) ([tknzk](https://github.com/tknzk))
+
 ## [v0.1.6](https://github.com/tknzk/saml_idp_metadata/tree/v0.1.6) (2020-05-19)
 
 [Full Changelog](https://github.com/tknzk/saml_idp_metadata/compare/v0.1.5...v0.1.6)
@@ -69,7 +96,6 @@
 - Ruby 2.7.0 [\#8](https://github.com/tknzk/saml_idp_metadata/pull/8) ([tknzk](https://github.com/tknzk))
 - change email [\#7](https://github.com/tknzk/saml_idp_metadata/pull/7) ([tknzk](https://github.com/tknzk))
 - add changelog [\#6](https://github.com/tknzk/saml_idp_metadata/pull/6) ([tknzk](https://github.com/tknzk))
-- ruby 2.5.x , bundler 2.0.2 [\#4](https://github.com/tknzk/saml_idp_metadata/pull/4) ([tknzk](https://github.com/tknzk))
 
 ## [v0.1.3](https://github.com/tknzk/saml_idp_metadata/tree/v0.1.3) (2019-11-27)
 
@@ -78,6 +104,7 @@
 **Merged pull requests:**
 
 - bumpup [\#5](https://github.com/tknzk/saml_idp_metadata/pull/5) ([tknzk](https://github.com/tknzk))
+- ruby 2.5.x , bundler 2.0.2 [\#4](https://github.com/tknzk/saml_idp_metadata/pull/4) ([tknzk](https://github.com/tknzk))
 - fix a typo [\#3](https://github.com/tknzk/saml_idp_metadata/pull/3) ([tknzk](https://github.com/tknzk))
 
 ## [v0.1.2](https://github.com/tknzk/saml_idp_metadata/tree/v0.1.2) (2019-11-25)
