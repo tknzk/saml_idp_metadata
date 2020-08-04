@@ -1,70 +1,70 @@
 inherit_from: .rubocop_todo.yml
 
 Layout/EmptyLinesAroundAttributeAccessor:
-  Enabled: true
+  Enabled: false
 
 Layout/SpaceAroundMethodCallOperator:
-  Enabled: true
+  Enabled: false
 
 Lint/DeprecatedOpenSSLConstant:
-  Enabled: true
+  Enabled: false
 
 Lint/DuplicateElsifCondition:
-  Enabled: true
+  Enabled: false
 
 Lint/MixedRegexpCaptureTypes:
-  Enabled: true
+  Enabled: false
 
 Lint/RaiseException:
-  Enabled: true
+  Enabled: false
 
 Lint/StructNewOverride:
-  Enabled: true
+  Enabled: false
 
 Style/AccessorGrouping:
-  Enabled: true
+  Enabled: false
 
 Style/ArrayCoercion:
-  Enabled: true
+  Enabled: false
 
 Style/BisectedAttrAccessor:
-  Enabled: true
+  Enabled: false
 
 Style/CaseLikeIf:
-  Enabled: true
+  Enabled: false
 
 Style/ExponentialNotation:
-  Enabled: true
+  Enabled: false
 
 Style/HashAsLastArrayItem:
-  Enabled: true
+  Enabled: false
 
 Style/HashEachMethods:
-  Enabled: true
+  Enabled: false
 
 Style/HashLikeCase:
-  Enabled: true
+  Enabled: false
 
 Style/HashTransformKeys:
-  Enabled: true
+  Enabled: false
 
 Style/HashTransformValues:
-  Enabled: true
+  Enabled: false
 
 Style/RedundantAssignment:
-  Enabled: true
+  Enabled: false
 
 Style/RedundantFetchBlock:
-  Enabled: true
+  Enabled: false
 
 Style/RedundantFileExtensionInRequire:
-  Enabled: true
+  Enabled: false
 
 Style/RedundantRegexpCharacterClass:
-  Enabled: true
+  Enabled: false
 
 Style/RedundantRegexpEscape:
-  Enabled: true
+  Enabled: false
 
 Style/SlicingWithRange:
-  Enabled: true
+  Enabled: false
