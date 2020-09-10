@@ -1,5 +1,31 @@
 # Changelog
 
+## [v0.1.8](https://github.com/tknzk/saml_idp_metadata/tree/v0.1.8) (2020-09-10)
+
+[Full Changelog](https://github.com/tknzk/saml_idp_metadata/compare/v0.1.7...v0.1.8)
+
+**Merged pull requests:**
+
+- bumpup [\#92](https://github.com/tknzk/saml_idp_metadata/pull/92) ([tknzk](https://github.com/tknzk))
+- Bump activesupport from 6.0.3.2 to 6.0.3.3 [\#91](https://github.com/tknzk/saml_idp_metadata/pull/91) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump minitest from 5.14.1 to 5.14.2 [\#90](https://github.com/tknzk/saml_idp_metadata/pull/90) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump rubocop from 0.89.1 to 0.90.0 [\#89](https://github.com/tknzk/saml_idp_metadata/pull/89) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump simplecov from 0.18.5 to 0.19.0 [\#88](https://github.com/tknzk/saml_idp_metadata/pull/88) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump concurrent-ruby from 1.1.6 to 1.1.7 [\#87](https://github.com/tknzk/saml_idp_metadata/pull/87) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump rubocop from 0.89.0 to 0.89.1 [\#86](https://github.com/tknzk/saml_idp_metadata/pull/86) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump rubocop from 0.88.0 to 0.89.0 [\#85](https://github.com/tknzk/saml_idp_metadata/pull/85) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Rubocop config [\#84](https://github.com/tknzk/saml_idp_metadata/pull/84) ([tknzk](https://github.com/tknzk))
+- Bump rubocop-ast from 0.2.0 to 0.3.0 [\#83](https://github.com/tknzk/saml_idp_metadata/pull/83) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump i18n from 1.8.4 to 1.8.5 [\#82](https://github.com/tknzk/saml_idp_metadata/pull/82) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump i18n from 1.8.3 to 1.8.4 [\#81](https://github.com/tknzk/saml_idp_metadata/pull/81) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump rubocop-ast from 0.1.0 to 0.2.0 [\#80](https://github.com/tknzk/saml_idp_metadata/pull/80) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump zeitwerk from 2.3.1 to 2.4.0 [\#79](https://github.com/tknzk/saml_idp_metadata/pull/79) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump rubocop from 0.87.1 to 0.88.0 [\#78](https://github.com/tknzk/saml_idp_metadata/pull/78) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump rubocop from 0.87.0 to 0.87.1 [\#77](https://github.com/tknzk/saml_idp_metadata/pull/77) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump rubocop from 0.86.0 to 0.87.0 [\#76](https://github.com/tknzk/saml_idp_metadata/pull/76) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- update changelog [\#75](https://github.com/tknzk/saml_idp_metadata/pull/75) ([tknzk](https://github.com/tknzk))
+- Bump diff-lcs from 1.4.3 to 1.4.4 [\#73](https://github.com/tknzk/saml_idp_metadata/pull/73) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+
 ## [v0.1.7](https://github.com/tknzk/saml_idp_metadata/tree/v0.1.7) (2020-07-02)
 
 [Full Changelog](https://github.com/tknzk/saml_idp_metadata/compare/v0.1.6...v0.1.7)
