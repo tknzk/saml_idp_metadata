@@ -108,7 +108,7 @@ module SamlIdpMetadata
     def parse_x509_certificate
       return nil if entity_descriptor.dig('IDPSSODescriptor', 'KeyDescriptor').nil?
 
-      if entity_descriptor['IDPSSODescriptor']['KeyDescriptor'].class == Array
+      if entity_descriptor['IDPSSODescriptor']['KeyDescriptor'].instance_of?(Array)
         entity_descriptor['IDPSSODescriptor']['KeyDescriptor'].last['KeyInfo']['X509Data']['X509Certificate']
       else
         entity_descriptor['IDPSSODescriptor']['KeyDescriptor']['KeyInfo']['X509Data']['X509Certificate']
