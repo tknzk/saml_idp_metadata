@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
+require 'active_support/dependencies/autoload'
 require 'active_support/core_ext'
+
 module SamlIdpMetadata
   #
   # SAML IdP metadata parser
