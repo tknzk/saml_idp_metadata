@@ -70,6 +70,7 @@ GEM
 
 PLATFORMS
   ruby
+  x86_64-darwin-19
 
 DEPENDENCIES
   bundler (~> 2)
@@ -81,4 +82,4 @@ DEPENDENCIES
   simplecov
 
 BUNDLED WITH
-   2.2.0.rc.1
+   2.2.0

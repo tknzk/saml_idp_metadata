@@ -12,7 +12,8 @@ jobs:
         - '2.5-bionic'
         - '2.6-bionic'
         - '2.7-bionic'
-        - '3.0.0-preview1-bionic'
+        - '3.0.0-preview2-focal'
+        - '3.0.0-rc1-focal'
         - 'latest'
     container:
       image: rubylang/ruby:${{ matrix.ruby }}
@@ -21,7 +22,7 @@ jobs:
       - uses: actions/checkout@master
       - name: Build and test
         run: |
-          gem install bundler -v 2.1.4 --force
+          gem install bundler -v 2.2.0 --force
           bundle install
           bundle exec rubocop
           bundle exec rake
