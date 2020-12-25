@@ -2,12 +2,9 @@ version: 2.1
 
 executors:
   working_directory: /root/saml_idp_metadata
-  ruby_3_0_rc1:
+  ruby_3_0:
     docker:
-      - image: rubylang/ruby:3.0.0-rc1-focal
-  ruby_3_0_preview2:
-    docker:
-      - image: rubylang/ruby:3.0.0-preview2-focal
+      - image: rubylang/ruby:3.0.0-focal
   ruby_2_7:
     docker:
       - image: rubylang/ruby:2.7.2-bionic
@@ -48,16 +45,8 @@ commands:
           path: coverage
 
 jobs:
-  run_tests_on_ruby_3_0_rc1:
-    executor: ruby_3_0_rc1
-    steps:
-      - install_system_dependencies
-      - checkout
-      - bundle_gems
-      - run_tests
-
-  run_tests_on_ruby_3_0_preview2:
-    executor: ruby_3_0_preview2
+  run_tests_on_ruby_3_0:
+    executor: ruby_3_0
     steps:
       - install_system_dependencies
       - checkout
@@ -92,8 +81,7 @@ workflows:
   version: 2
   test:
     jobs:
-      - run_tests_on_ruby_3_0_rc1
-      - run_tests_on_ruby_3_0_preview2
+      - run_tests_on_ruby_3_0
       - run_tests_on_ruby_2_7
       - run_tests_on_ruby_2_6
       - run_tests_on_ruby_2_5
