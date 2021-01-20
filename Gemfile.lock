@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    saml_idp_metadata (0.1.9)
+    saml_idp_metadata (0.2.0)
       activesupport
 
 GEM
@@ -82,4 +82,4 @@ DEPENDENCIES
   simplecov
 
 BUNDLED WITH
-   2.2.0
+   2.2.3
