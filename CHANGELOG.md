@@ -1,5 +1,14 @@
 # Changelog
 
+## [v0.2.1](https://github.com/tknzk/saml_idp_metadata/tree/v0.2.1) (2021-01-21)
+
+[Full Changelog](https://github.com/tknzk/saml_idp_metadata/compare/v0.2.0...v0.2.1)
+
+**Merged pull requests:**
+
+- bumpup [\#176](https://github.com/tknzk/saml_idp_metadata/pull/176) ([tknzk](https://github.com/tknzk))
+- parse nameid\_format [\#175](https://github.com/tknzk/saml_idp_metadata/pull/175) ([tknzk](https://github.com/tknzk))
+
 ## [v0.2.0](https://github.com/tknzk/saml_idp_metadata/tree/v0.2.0) (2021-01-21)
 
 [Full Changelog](https://github.com/tknzk/saml_idp_metadata/compare/v0.1.9...v0.2.0)
@@ -83,6 +92,8 @@
 - Bump rubocop from 0.91.1 to 0.92.0 [\#102](https://github.com/tknzk/saml_idp_metadata/pull/102) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 - Bump rubocop-ast from 0.4.2 to 0.5.0 [\#101](https://github.com/tknzk/saml_idp_metadata/pull/101) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 - Bump rubocop from 0.91.0 to 0.91.1 [\#99](https://github.com/tknzk/saml_idp_metadata/pull/99) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump simplecov-html from 0.12.2 to 0.12.3 [\#98](https://github.com/tknzk/saml_idp_metadata/pull/98) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump regexp\_parser from 1.7.1 to 1.8.0 [\#97](https://github.com/tknzk/saml_idp_metadata/pull/97) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 - Bump rubocop-ast from 0.4.1 to 0.4.2 [\#96](https://github.com/tknzk/saml_idp_metadata/pull/96) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 - Bump rubocop-ast from 0.4.0 to 0.4.1 [\#95](https://github.com/tknzk/saml_idp_metadata/pull/95) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 - Bump rubocop from 0.90.0 to 0.91.0 [\#94](https://github.com/tknzk/saml_idp_metadata/pull/94) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
@@ -94,8 +105,6 @@
 
 **Merged pull requests:**
 
-- Bump simplecov-html from 0.12.2 to 0.12.3 [\#98](https://github.com/tknzk/saml_idp_metadata/pull/98) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
-- Bump regexp\_parser from 1.7.1 to 1.8.0 [\#97](https://github.com/tknzk/saml_idp_metadata/pull/97) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 - bumpup [\#92](https://github.com/tknzk/saml_idp_metadata/pull/92) ([tknzk](https://github.com/tknzk))
 - Bump activesupport from 6.0.3.2 to 6.0.3.3 [\#91](https://github.com/tknzk/saml_idp_metadata/pull/91) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 - Bump minitest from 5.14.1 to 5.14.2 [\#90](https://github.com/tknzk/saml_idp_metadata/pull/90) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
