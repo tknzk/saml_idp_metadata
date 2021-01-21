@@ -210,6 +210,45 @@ describe SamlIdpMetadata::Parser do
     end
   end
 
+  describe 'parsed value / nameid_format' do
+    subject { SamlIdpMetadata::Parser.call(xml: xml).nameid_format }
+
+    context 'when valid xml' do
+      let(:xml) { File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid.xml')) }
+      it { is_expected.to eq 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress' }
+    end
+
+    context 'when valid xml w/ multiple singlelogout line' do
+      let(:xml) { File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid_multiple_slo.xml')) }
+      it { is_expected.to eq 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress' }
+    end
+
+    context 'when valid xml w/ multiple X509Certificate (like a G Suite xml metadata)' do
+      let(:xml) { File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid_gsuite.xml')) }
+      it { is_expected.to eq 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress' }
+    end
+
+    context 'when valid xml w/ sso single sign on service has 1 element. (like a SOME ONE xml metadata)' do
+      let(:xml) { File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid_someone.xml')) }
+      it { is_expected.to eq 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress' }
+    end
+
+    context 'when valid xml w/ sol url not exists (like a Okta xml metadata)' do
+      let(:xml) { File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid_okta.xml')) }
+      it { is_expected.to eq 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress' }
+    end
+
+    context 'when invalid xml' do
+      let(:xml) { File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_invalid.xml')) }
+      it { is_expected.to eq nil }
+    end
+
+    context 'when invalid xml w/ entity_id is nil' do
+      let(:xml) { File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_invalid_entity_id.xml')) }
+      it { is_expected.to eq 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress' }
+    end
+  end
+
   describe '.build_params' do
     subject { SamlIdpMetadata::Parser.call(xml: xml).build_params }
 
@@ -221,6 +260,7 @@ describe SamlIdpMetadata::Parser do
                                sso_http_post_url: 'https://example.com/saml2/http-post/sso/99999',
                                certificate: 'X509Certificate-X509Certificate=',
                                slo_url: 'https://example.com/saml2/http-redirect/slo/99999',
+                               nameid_format: 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress',
                                metadata: xml)
       }
     end
@@ -233,6 +273,7 @@ describe SamlIdpMetadata::Parser do
                                sso_http_post_url: 'https://accounts.example.com/o/saml2/idp?idpid=xxxxxx',
                                certificate: 'Certificate001-Certificate001=',
                                slo_url: nil,
+                               nameid_format: 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress',
                                metadata: xml)
       }
     end
@@ -245,6 +286,7 @@ describe SamlIdpMetadata::Parser do
                                sso_http_post_url: 'https://someone-entity.example.com/app/saml_example_app/somecode/sso/saml',
                                certificate: 'Certificate009=Certificate009==',
                                slo_url: nil,
+                               nameid_format: 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress',
                                metadata: xml)
       }
     end
@@ -257,6 +299,7 @@ describe SamlIdpMetadata::Parser do
                                sso_http_post_url: 'https://ap.ssso.example.com/sso/someone.example.com/login',
                                certificate: 'Certificate000-Certificate000',
                                slo_url: nil,
+                               nameid_format: 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress',
                                metadata: xml)
       }
     end
@@ -269,6 +312,7 @@ describe SamlIdpMetadata::Parser do
                                sso_http_post_url: nil,
                                certificate: nil,
                                slo_url: nil,
+                               nameid_format: nil,
                                metadata: xml)
       }
     end
@@ -281,6 +325,7 @@ describe SamlIdpMetadata::Parser do
                                sso_http_post_url: 'https://example.com/saml2/http-post/sso/99999',
                                certificate: 'X509Certificate-X509Certificate=',
                                slo_url: 'https://example.com/saml2/http-redirect/slo/99999',
+                               nameid_format: 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress',
                                metadata: xml)
       }
     end

@@ -8,7 +8,8 @@ module SamlIdpMetadata
   # SAML IdP metadata parser
   #
   class Parser
-    attr_reader :xml, :xmlns, :entity_id, :sso_http_redirect_url, :sso_http_post_url, :slo_url, :x509_certificate
+    attr_reader :xml, :xmlns, :entity_id, :sso_http_redirect_url, :sso_http_post_url, :slo_url, :nameid_format,
+                :x509_certificate
 
     def initialize(xml:)
       @xml = xml
@@ -19,6 +20,7 @@ module SamlIdpMetadata
       @sso_http_redirect_url = nil
       @sso_http_post_url = nil
       @slo_url = nil
+      @nameid_format = nil
       @x509_certificate = nil
     end
 
@@ -33,6 +35,7 @@ module SamlIdpMetadata
       @sso_http_redirect_url = parse_sso_http_redirect_url
       @sso_http_post_url = parse_sso_http_post_url
       @slo_url = parse_slo_url
+      @nameid_format = parse_nameid_format
       @x509_certificate = parse_x509_certificate
 
       self
@@ -53,6 +56,7 @@ module SamlIdpMetadata
         sso_http_post_url: sso_http_post_url,
         certificate: x509_certificate,
         slo_url: slo_url,
+        nameid_format: nameid_format,
         metadata: xml
       }
     end
@@ -104,6 +108,16 @@ module SamlIdpMetadata
 
       single_logout_services.each do |service|
         return service['Location'] if service['Binding'] == 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect'
+      end
+    end
+
+    def parse_nameid_format
+      return nil if entity_descriptor.dig('IDPSSODescriptor', 'NameIDFormat').nil?
+
+      if entity_descriptor['IDPSSODescriptor']['NameIDFormat'].instance_of?(Array)
+        entity_descriptor['IDPSSODescriptor']['NameIDFormat'].last
+      else
+        entity_descriptor['IDPSSODescriptor']['NameIDFormat']
       end
     end
 
