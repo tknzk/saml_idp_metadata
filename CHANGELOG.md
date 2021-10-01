@@ -1,5 +1,15 @@
 # Changelog
 
+## [v0.2.4](https://github.com/tknzk/saml_idp_metadata/tree/v0.2.4) (2021-10-01)
+
+[Full Changelog](https://github.com/tknzk/saml_idp_metadata/compare/v0.2.3...v0.2.4)
+
+**Merged pull requests:**
+
+- bumpup [\#192](https://github.com/tknzk/saml_idp_metadata/pull/192) ([tknzk](https://github.com/tknzk))
+- bundle update [\#191](https://github.com/tknzk/saml_idp_metadata/pull/191) ([tknzk](https://github.com/tknzk))
+- Modified rubocop [\#190](https://github.com/tknzk/saml_idp_metadata/pull/190) ([tknzk](https://github.com/tknzk))
+
 ## [v0.2.3](https://github.com/tknzk/saml_idp_metadata/tree/v0.2.3) (2021-08-03)
 
 [Full Changelog](https://github.com/tknzk/saml_idp_metadata/compare/v0.2.2...v0.2.3)
