@@ -12,6 +12,7 @@ jobs:
         - '2.6-bionic'
         - '2.7-bionic'
         - '3.0.0-focal'
+        - '3.1.0-preview1-focal'
         - 'latest'
     container:
       image: rubylang/ruby:${{ matrix.ruby }}
