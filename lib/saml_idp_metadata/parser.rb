@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 require 'active_support/dependencies/autoload'
-require 'active_support/core_ext'
+require 'active_support/isolated_execution_state'
+require 'active_support/core_ext/hash/conversions'
 
 module SamlIdpMetadata
   #
