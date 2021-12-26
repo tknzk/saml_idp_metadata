@@ -26,7 +26,7 @@ module SamlIdpMetadata
     end
 
     def self.call(xml:)
-      new(xml: xml).call
+      new(xml:).call
     end
 
     def call
