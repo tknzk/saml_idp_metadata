@@ -4,7 +4,7 @@ require 'spec_helper'
 
 describe SamlIdpMetadata::Parser do
   describe '.validate_xmlns' do
-    subject { SamlIdpMetadata::Parser.call(xml:).validate_xmlns }
+    subject { SamlIdpMetadata::Parser.call(xml: xml).validate_xmlns }
 
     context 'when valid xml' do
       let(:xml) { File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid.xml')) }
@@ -20,7 +20,7 @@ describe SamlIdpMetadata::Parser do
   end
 
   describe '.ensure_params?' do
-    subject { SamlIdpMetadata::Parser.call(xml:).ensure_params? }
+    subject { SamlIdpMetadata::Parser.call(xml: xml).ensure_params? }
 
     context 'when valid xml' do
       let(:xml) { File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid.xml')) }
@@ -36,7 +36,7 @@ describe SamlIdpMetadata::Parser do
   end
 
   describe 'parsed value / entity_id' do
-    subject { SamlIdpMetadata::Parser.call(xml:).entity_id }
+    subject { SamlIdpMetadata::Parser.call(xml: xml).entity_id }
 
     context 'when valid xml' do
       let(:xml) { File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid.xml')) }
@@ -70,7 +70,7 @@ describe SamlIdpMetadata::Parser do
   end
 
   describe 'parsed value / sso_http_redirect_url' do
-    subject { SamlIdpMetadata::Parser.call(xml:).sso_http_redirect_url }
+    subject { SamlIdpMetadata::Parser.call(xml: xml).sso_http_redirect_url }
 
     context 'when valid xml' do
       let(:xml) { File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid.xml')) }
@@ -104,7 +104,7 @@ describe SamlIdpMetadata::Parser do
   end
 
   describe 'parsed value / sso_http_post_url' do
-    subject { SamlIdpMetadata::Parser.call(xml:).sso_http_post_url }
+    subject { SamlIdpMetadata::Parser.call(xml: xml).sso_http_post_url }
 
     context 'when valid xml' do
       let(:xml) { File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid.xml')) }
@@ -138,7 +138,7 @@ describe SamlIdpMetadata::Parser do
   end
 
   describe 'parsed value / certificate' do
-    subject { SamlIdpMetadata::Parser.call(xml:).x509_certificate }
+    subject { SamlIdpMetadata::Parser.call(xml: xml).x509_certificate }
 
     context 'when valid xml' do
       let(:xml) { File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid.xml')) }
@@ -172,7 +172,7 @@ describe SamlIdpMetadata::Parser do
   end
 
   describe 'parsed value / slo_url' do
-    subject { SamlIdpMetadata::Parser.call(xml:).slo_url }
+    subject { SamlIdpMetadata::Parser.call(xml: xml).slo_url }
 
     context 'when valid xml' do
       let(:xml) { File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid.xml')) }
@@ -211,7 +211,7 @@ describe SamlIdpMetadata::Parser do
   end
 
   describe 'parsed value / nameid_format' do
-    subject { SamlIdpMetadata::Parser.call(xml:).nameid_format }
+    subject { SamlIdpMetadata::Parser.call(xml: xml).nameid_format }
 
     context 'when valid xml' do
       let(:xml) { File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid.xml')) }
@@ -250,7 +250,7 @@ describe SamlIdpMetadata::Parser do
   end
 
   describe '.build_params' do
-    subject { SamlIdpMetadata::Parser.call(xml:).build_params }
+    subject { SamlIdpMetadata::Parser.call(xml: xml).build_params }
 
     context 'when valid xml' do
       let(:xml) { File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid.xml')) }
