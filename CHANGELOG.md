@@ -1,5 +1,32 @@
 # Changelog
 
+## [v0.3.1](https://github.com/tknzk/saml_idp_metadata/tree/v0.3.1) (2022-05-11)
+
+[Full Changelog](https://github.com/tknzk/saml_idp_metadata/compare/v0.3.0...v0.3.1)
+
+**Merged pull requests:**
+
+- bumpup 0.3.1 [\#206](https://github.com/tknzk/saml_idp_metadata/pull/206) ([tknzk](https://github.com/tknzk))
+- remove under version [\#205](https://github.com/tknzk/saml_idp_metadata/pull/205) ([tknzk](https://github.com/tknzk))
+
+## [v0.3.0](https://github.com/tknzk/saml_idp_metadata/tree/v0.3.0) (2022-05-11)
+
+[Full Changelog](https://github.com/tknzk/saml_idp_metadata/compare/v0.2.4...v0.3.0)
+
+**Merged pull requests:**
+
+- bump up 0.3.0 [\#204](https://github.com/tknzk/saml_idp_metadata/pull/204) ([tknzk](https://github.com/tknzk))
+- bundle update [\#203](https://github.com/tknzk/saml_idp_metadata/pull/203) ([tknzk](https://github.com/tknzk))
+- ruby 2.6 EOL [\#202](https://github.com/tknzk/saml_idp_metadata/pull/202) ([tknzk](https://github.com/tknzk))
+- activesupport \< 7 [\#201](https://github.com/tknzk/saml_idp_metadata/pull/201) ([tknzk](https://github.com/tknzk))
+- parse include EntitiesDescriptor [\#200](https://github.com/tknzk/saml_idp_metadata/pull/200) ([tknzk](https://github.com/tknzk))
+- ruby 3.1.2 [\#199](https://github.com/tknzk/saml_idp_metadata/pull/199) ([tknzk](https://github.com/tknzk))
+- ruby 3.1.0 [\#197](https://github.com/tknzk/saml_idp_metadata/pull/197) ([tknzk](https://github.com/tknzk))
+- ruby 3.1.0-preview1 [\#196](https://github.com/tknzk/saml_idp_metadata/pull/196) ([tknzk](https://github.com/tknzk))
+- create codeql-analysis.yml [\#195](https://github.com/tknzk/saml_idp_metadata/pull/195) ([tknzk](https://github.com/tknzk))
+- bundle update [\#194](https://github.com/tknzk/saml_idp_metadata/pull/194) ([tknzk](https://github.com/tknzk))
+- Drop support ruby 2.5 [\#193](https://github.com/tknzk/saml_idp_metadata/pull/193) ([tknzk](https://github.com/tknzk))
+
 ## [v0.2.4](https://github.com/tknzk/saml_idp_metadata/tree/v0.2.4) (2021-10-01)
 
 [Full Changelog](https://github.com/tknzk/saml_idp_metadata/compare/v0.2.3...v0.2.4)
