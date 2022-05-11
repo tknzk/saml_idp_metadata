@@ -12,6 +12,14 @@ describe SamlIdpMetadata::Parser do
       it { is_expected.to be_truthy }
     end
 
+    context 'when valid xml w/ EntitiesDescriptor' do
+      let(:xml) do
+        File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid_entities_descriptor.xml'))
+      end
+
+      it { is_expected.to be_truthy }
+    end
+
     context 'when invalid xml' do
       let(:xml) { File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_invalid_xmlns.xml')) }
 
@@ -24,6 +32,14 @@ describe SamlIdpMetadata::Parser do
 
     context 'when valid xml' do
       let(:xml) { File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid.xml')) }
+
+      it { is_expected.to be_truthy }
+    end
+
+    context 'when valid xml w/ entities_descriptor' do
+      let(:xml) do
+        File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid_entities_descriptor.xml'))
+      end
 
       it { is_expected.to be_truthy }
     end
@@ -41,6 +57,13 @@ describe SamlIdpMetadata::Parser do
     context 'when valid xml' do
       let(:xml) { File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid.xml')) }
       it { is_expected.to eq 'https://example.com/saml2/metadata/issure-url' }
+    end
+
+    context 'when valid xml w/ EntitiesDescriptor' do
+      let(:xml) do
+        File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid_entities_descriptor.xml'))
+      end
+      it { is_expected.to eq 'https://example.com/auth/realms/issure_url' }
     end
 
     context 'when valid xml w/ multiple X509Certificate (like a G Suite xml metadata)' do
@@ -73,6 +96,18 @@ describe SamlIdpMetadata::Parser do
     subject { SamlIdpMetadata::Parser.call(xml: xml).sso_http_redirect_url }
 
     context 'when valid xml' do
+      let(:xml) { File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid.xml')) }
+      it { is_expected.to eq 'https://example.com/saml2/http-redirect/sso/99999' }
+    end
+
+    context 'when valid xml w/ EntitiesEescriptor' do
+      let(:xml) do
+        File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid_entities_descriptor.xml'))
+      end
+      it { is_expected.to eq 'https://example.com/auth/realms/key/protocol/saml' }
+    end
+
+    context 'when valid xml w/ EntitiesEescriptor' do
       let(:xml) { File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid.xml')) }
       it { is_expected.to eq 'https://example.com/saml2/http-redirect/sso/99999' }
     end
@@ -111,6 +146,13 @@ describe SamlIdpMetadata::Parser do
       it { is_expected.to eq 'https://example.com/saml2/http-post/sso/99999' }
     end
 
+    context 'when valid xml w/ EntitiesDescriptor' do
+      let(:xml) do
+        File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid_entities_descriptor.xml'))
+      end
+      it { is_expected.to eq 'https://example.com/auth/realms/key/protocol/saml' }
+    end
+
     context 'when valid xml w/ multiple X509Certificate (like a G Suite xml metadata)' do
       let(:xml) { File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid_gsuite.xml')) }
       it { is_expected.to eq 'https://accounts.example.com/o/saml2/idp?idpid=xxxxxx' }
@@ -142,6 +184,13 @@ describe SamlIdpMetadata::Parser do
 
     context 'when valid xml' do
       let(:xml) { File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid.xml')) }
+      it { is_expected.to eq 'X509Certificate-X509Certificate=' }
+    end
+
+    context 'when valid xml w/ EntitiesDescriptor' do
+      let(:xml) do
+        File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid_entities_descriptor.xml'))
+      end
       it { is_expected.to eq 'X509Certificate-X509Certificate=' }
     end
 
@@ -177,6 +226,13 @@ describe SamlIdpMetadata::Parser do
     context 'when valid xml' do
       let(:xml) { File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid.xml')) }
       it { is_expected.to eq 'https://example.com/saml2/http-redirect/slo/99999' }
+    end
+
+    context 'when valid xml w/ EntitiesDescriptor' do
+      let(:xml) do
+        File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid_entities_descriptor.xml'))
+      end
+      it { is_expected.to eq 'https://example.com/auth/realms/key/protocol/saml' }
     end
 
     context 'when valid xml w/ multiple singlelogout line' do
@@ -215,6 +271,13 @@ describe SamlIdpMetadata::Parser do
 
     context 'when valid xml' do
       let(:xml) { File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid.xml')) }
+      it { is_expected.to eq 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress' }
+    end
+
+    context 'when valid xml w/ EntitiesDescriptor' do
+      let(:xml) do
+        File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid_entities_descriptor.xml'))
+      end
       it { is_expected.to eq 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress' }
     end
 
@@ -260,6 +323,21 @@ describe SamlIdpMetadata::Parser do
                                sso_http_post_url: 'https://example.com/saml2/http-post/sso/99999',
                                certificate: 'X509Certificate-X509Certificate=',
                                slo_url: 'https://example.com/saml2/http-redirect/slo/99999',
+                               nameid_format: 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress',
+                               metadata: xml)
+      }
+    end
+
+    context 'when valid xml w/ EntitiesDescriptor' do
+      let(:xml) do
+        File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid_entities_descriptor.xml'))
+      end
+      it {
+        is_expected.to include(entity_id: 'https://example.com/auth/realms/issure_url',
+                               sso_http_redirect_url: 'https://example.com/auth/realms/key/protocol/saml',
+                               sso_http_post_url: 'https://example.com/auth/realms/key/protocol/saml',
+                               certificate: 'X509Certificate-X509Certificate=',
+                               slo_url: 'https://example.com/auth/realms/key/protocol/saml',
                                nameid_format: 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress',
                                metadata: xml)
       }

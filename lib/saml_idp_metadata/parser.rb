@@ -64,7 +64,11 @@ module SamlIdpMetadata
     private
 
     def entity_descriptor
-      @hash['EntityDescriptor']
+      if @hash['EntitiesDescriptor'].present?
+        @hash['EntitiesDescriptor']['EntityDescriptor']
+      else
+        @hash['EntityDescriptor']
+      end
     end
 
     def parse_entity_id
