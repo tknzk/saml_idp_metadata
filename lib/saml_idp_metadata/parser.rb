@@ -33,7 +33,7 @@ module SamlIdpMetadata
 
       @entity_id = parse_entity_id
       @sso_http_redirect_url = parse_sso_http_redirect_url
-      @sso_http_post_url = parse_sso_http_post_url
+      @sso_http_post_url = parse_sso_http_post_url.presence || parse_sso_http_redirect_url
       @slo_url = parse_slo_url
       @nameid_format = parse_nameid_format
       @x509_certificate = parse_x509_certificate
@@ -53,7 +53,7 @@ module SamlIdpMetadata
       {
         entity_id: entity_id,
         sso_http_redirect_url: sso_http_redirect_url,
-        sso_http_post_url: sso_http_post_url.presence || sso_http_redirect_url,
+        sso_http_post_url: sso_http_post_url,
         certificate: x509_certificate,
         slo_url: slo_url,
         nameid_format: nameid_format,
