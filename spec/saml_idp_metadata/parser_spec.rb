@@ -76,7 +76,7 @@ describe SamlIdpMetadata::Parser do
       it { is_expected.to eq 'https://ap.ssso.example.com/sso/someone.example.com' }
     end
 
-    context 'when valid xml w/ sol url not exists (like a Okta xml metadata)' do
+    context 'when valid xml w/ slo url not exists (like a Okta xml metadata)' do
       let(:xml) { File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid_okta.xml')) }
       it { is_expected.to eq 'http://www.example.com/someone-entity' }
     end
@@ -204,6 +204,11 @@ describe SamlIdpMetadata::Parser do
       it { is_expected.to eq 'Certificate000-Certificate000' }
     end
 
+    context 'when valid xml w/ sso single sign on service has 2 element. (like a ogate xml metadata)' do
+      let(:xml) { File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid_ogate.xml')) }
+      it { is_expected.to eq 'Certificate000-Certificate000' }
+    end
+
     context 'when valid xml w/ sol url not exists (like a Okta xml metadata)' do
       let(:xml) { File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid_okta.xml')) }
       it { is_expected.to eq 'Certificate009=Certificate009==' }
@@ -250,6 +255,11 @@ describe SamlIdpMetadata::Parser do
       it { is_expected.to eq nil }
     end
 
+    context 'when valid xml w/ sso single sign on service has 2 element. (like a ogate xml metadata)' do
+      let(:xml) { File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid_ogate.xml')) }
+      it { is_expected.to eq 'https://auth.example.com/saml/saml2/idp/SingleLogoutService.php' }
+    end
+
     context 'when valid xml w/ sol url not exists (like a Okta xml metadata)' do
       let(:xml) { File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid_okta.xml')) }
       it { is_expected.to eq nil }
@@ -294,6 +304,11 @@ describe SamlIdpMetadata::Parser do
     context 'when valid xml w/ sso single sign on service has 1 element. (like a SOME ONE xml metadata)' do
       let(:xml) { File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid_someone.xml')) }
       it { is_expected.to eq 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress' }
+    end
+
+    context 'when valid xml w/ sso single sign on service has 2 element. (like a ogate xml metadata)' do
+      let(:xml) { File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid_ogate.xml')) }
+      it { is_expected.to eq 'urn:oasis:names:tc:SAML:2.0:nameid-format:transient' }
     end
 
     context 'when valid xml w/ sol url not exists (like a Okta xml metadata)' do
@@ -378,6 +393,19 @@ describe SamlIdpMetadata::Parser do
                                certificate: 'Certificate000-Certificate000',
                                slo_url: nil,
                                nameid_format: 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress',
+                               metadata: xml)
+      }
+    end
+
+    context 'when valid xml w/ sso single sign on service has 2 element. (like a ogate xml metadata)' do
+      let(:xml) { File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid_ogate.xml')) }
+      it {
+        is_expected.to include(entity_id: 'https://auth.example.com/99999999999',
+                               sso_http_redirect_url: 'https://auth.example.com/saml/saml2/idp/SSOService.php/99999999999',
+                               sso_http_post_url: 'https://auth.example.com/saml/saml2/idp/SSOService.php/99999999999',
+                               certificate: 'Certificate000-Certificate000',
+                               slo_url: 'https://auth.example.com/saml/saml2/idp/SingleLogoutService.php',
+                               nameid_format: 'urn:oasis:names:tc:SAML:2.0:nameid-format:transient',
                                metadata: xml)
       }
     end
