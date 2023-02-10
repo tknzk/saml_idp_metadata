@@ -53,7 +53,7 @@ module SamlIdpMetadata
       {
         entity_id: entity_id,
         sso_http_redirect_url: sso_http_redirect_url,
-        sso_http_post_url: sso_http_post_url,
+        sso_http_post_url: sso_http_post_url.presence || sso_http_redirect_url,
         certificate: x509_certificate,
         slo_url: slo_url,
         nameid_format: nameid_format,
@@ -89,6 +89,7 @@ module SamlIdpMetadata
       single_signon_services.each do |service|
         return service['Location'] if service['Binding'] == 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect'
       end
+      nil
     end
 
     def parse_sso_http_post_url
@@ -101,6 +102,7 @@ module SamlIdpMetadata
       single_signon_services.each do |service|
         return service['Location'] if service['Binding'] == 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST'
       end
+      nil
     end
 
     def parse_slo_url
@@ -113,6 +115,7 @@ module SamlIdpMetadata
       single_logout_services.each do |service|
         return service['Location'] if service['Binding'] == 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect'
       end
+      nil
     end
 
     def parse_nameid_format
