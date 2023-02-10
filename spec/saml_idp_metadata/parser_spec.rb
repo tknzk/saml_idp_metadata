@@ -43,6 +43,12 @@ describe SamlIdpMetadata::Parser do
 
       it { is_expected.to be_truthy }
     end
+    j
+    context 'when valid xml w/ sso_http_post_url not exists' do
+      let(:xml) { File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid_ogate.xml')) }
+
+      it { is_expected.to be_truthy }
+    end
 
     context 'when invalid xml' do
       let(:xml) { File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_invalid.xml')) }

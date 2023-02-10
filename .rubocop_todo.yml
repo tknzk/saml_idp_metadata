@@ -22,7 +22,7 @@ Metrics/AbcSize:
 # Configuration parameters: CountComments, CountAsOne, ExcludedMethods, IgnoredMethods.
 # IgnoredMethods: refine
 Metrics/BlockLength:
-  Max: 357
+  Max: 362
 
 # Offense count: 14
 # This cop supports safe auto-correction (--auto-correct).
