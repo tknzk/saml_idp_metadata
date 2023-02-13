@@ -3,6 +3,9 @@ inherit_from: .rubocop_todo.yml
 AllCops:
   NewCops: enable
 
+Gemspec/DevelopmentDependencies:
+  EnforcedStyle: gemspec
+
 Layout/EmptyLinesAroundAttributeAccessor:
   Enabled: false
 
