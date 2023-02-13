@@ -20,7 +20,7 @@ jobs:
       - uses: actions/checkout@master
       - name: Build and test
         run: |
-          gem install bundler -v 2.3.11 --force
+          gem install bundler -v 2.4.6 --force
           bundle install
           bundle exec rubocop
           bundle exec rake
