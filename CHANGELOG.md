@@ -1,5 +1,23 @@
 # Changelog
 
+## [v0.3.3](https://github.com/tknzk/saml_idp_metadata/tree/v0.3.3) (2023-02-10)
+
+[Full Changelog](https://github.com/tknzk/saml_idp_metadata/compare/v0.3.2...v0.3.3)
+
+**Merged pull requests:**
+
+- bumpup [\#210](https://github.com/tknzk/saml_idp_metadata/pull/210) ([tknzk](https://github.com/tknzk))
+- use redirect\_url if post\_url not exist [\#209](https://github.com/tknzk/saml_idp_metadata/pull/209) ([tknzk](https://github.com/tknzk))
+
+## [v0.3.2](https://github.com/tknzk/saml_idp_metadata/tree/v0.3.2) (2023-02-10)
+
+[Full Changelog](https://github.com/tknzk/saml_idp_metadata/compare/v0.3.1...v0.3.2)
+
+**Merged pull requests:**
+
+- bumpup [\#208](https://github.com/tknzk/saml_idp_metadata/pull/208) ([tknzk](https://github.com/tknzk))
+- fix sso\_post\_url not exits. [\#207](https://github.com/tknzk/saml_idp_metadata/pull/207) ([tknzk](https://github.com/tknzk))
+
 ## [v0.3.1](https://github.com/tknzk/saml_idp_metadata/tree/v0.3.1) (2022-05-11)
 
 [Full Changelog](https://github.com/tknzk/saml_idp_metadata/compare/v0.3.0...v0.3.1)
