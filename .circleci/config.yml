@@ -11,9 +11,6 @@ executors:
   ruby_3_0:
     docker:
       - image: rubylang/ruby:3.0-dev-focal
-  ruby_2_7:
-    docker:
-      - image: rubylang/ruby:2.7-dev-bionic
 
 commands:
   install_system_dependencies:
@@ -69,14 +66,6 @@ jobs:
       - bundle_gems
       - run_tests
 
-  run_tests_on_ruby_2_7:
-    executor: ruby_2_7
-    steps:
-      - install_system_dependencies
-      - checkout
-      - bundle_gems
-      - run_tests
-
 workflows:
   version: 2
   test:
@@ -84,4 +73,3 @@ workflows:
       - run_tests_on_ruby_3_2
       - run_tests_on_ruby_3_1
       - run_tests_on_ruby_3_0
-      - run_tests_on_ruby_2_7
