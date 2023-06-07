@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     saml_idp_metadata (0.3.3)
-      activesupport (< 7)
+      activesupport (< 8)
 
 GEM
   remote: https://rubygems.org/
