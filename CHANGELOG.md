@@ -1,5 +1,14 @@
 # Changelog
 
+## [v0.3.5](https://github.com/tknzk/saml_idp_metadata/tree/v0.3.5) (2023-10-02)
+
+[Full Changelog](https://github.com/tknzk/saml_idp_metadata/compare/v0.3.4...v0.3.5)
+
+**Merged pull requests:**
+
+- bumpup [\#219](https://github.com/tknzk/saml_idp_metadata/pull/219) ([tknzk](https://github.com/tknzk))
+- Bundle update [\#218](https://github.com/tknzk/saml_idp_metadata/pull/218) ([tknzk](https://github.com/tknzk))
+
 ## [v0.3.4](https://github.com/tknzk/saml_idp_metadata/tree/v0.3.4) (2023-06-07)
 
 [Full Changelog](https://github.com/tknzk/saml_idp_metadata/compare/v0.3.3...v0.3.4)
