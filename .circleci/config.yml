@@ -27,7 +27,7 @@ commands:
       - run:
           name: Bundle gems
           command: |
-            gem install bundler -v 2.4.6 --no-document --force
+            gem install bundler -v 2.4.20 --no-document --force
             bundle install
 
   run_tests:
