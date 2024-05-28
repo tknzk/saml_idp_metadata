@@ -1,5 +1,16 @@
 # Changelog
 
+## [v0.3.6](https://github.com/tknzk/saml_idp_metadata/tree/v0.3.6) (2024-05-28)
+
+[Full Changelog](https://github.com/tknzk/saml_idp_metadata/compare/v0.3.5...v0.3.6)
+
+**Merged pull requests:**
+
+- bumpup [\#223](https://github.com/tknzk/saml_idp_metadata/pull/223) ([tknzk](https://github.com/tknzk))
+- bundle update [\#222](https://github.com/tknzk/saml_idp_metadata/pull/222) ([tknzk](https://github.com/tknzk))
+- ruby 3.2.3 [\#221](https://github.com/tknzk/saml_idp_metadata/pull/221) ([tknzk](https://github.com/tknzk))
+- modified email [\#220](https://github.com/tknzk/saml_idp_metadata/pull/220) ([tknzk](https://github.com/tknzk))
+
 ## [v0.3.5](https://github.com/tknzk/saml_idp_metadata/tree/v0.3.5) (2023-10-02)
 
 [Full Changelog](https://github.com/tknzk/saml_idp_metadata/compare/v0.3.4...v0.3.5)
