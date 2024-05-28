@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.required_ruby_version = '>= 3.0.0', '< 4'
   spec.version               = SamlIdpMetadata::VERSION
   spec.authors               = ['tknzk']
-  spec.email                 = ['tkm.knzk@gmail.com']
+  spec.email                 = ['info@tknzk.dev']
 
   spec.summary               = 'SAML IdP metadata.xml parser'
   spec.description           = 'SAML IdP metadata.xml parser'
