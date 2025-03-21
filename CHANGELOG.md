@@ -1,5 +1,16 @@
 # Changelog
 
+## [v0.3.7](https://github.com/tknzk/saml_idp_metadata/tree/v0.3.7) (2025-03-21)
+
+[Full Changelog](https://github.com/tknzk/saml_idp_metadata/compare/v0.3.6...v0.3.7)
+
+**Merged pull requests:**
+
+- bumpup [\#227](https://github.com/tknzk/saml_idp_metadata/pull/227) ([tknzk](https://github.com/tknzk))
+- ruby 3.3.7, bundler 2.5.22 [\#226](https://github.com/tknzk/saml_idp_metadata/pull/226) ([tknzk](https://github.com/tknzk))
+- ci for ruby 3.3,3.4 [\#225](https://github.com/tknzk/saml_idp_metadata/pull/225) ([tknzk](https://github.com/tknzk))
+- Bundle update [\#224](https://github.com/tknzk/saml_idp_metadata/pull/224) ([tknzk](https://github.com/tknzk))
+
 ## [v0.3.6](https://github.com/tknzk/saml_idp_metadata/tree/v0.3.6) (2024-05-28)
 
 [Full Changelog](https://github.com/tknzk/saml_idp_metadata/compare/v0.3.5...v0.3.6)
