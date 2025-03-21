@@ -44,7 +44,7 @@ module SamlIdpMetadata
     end
 
     def ensure_params?
-      !entity_id.nil? && ((!sso_http_redirect_url.nil? && !sso_http_post_url.nil?)) && !x509_certificate.nil?
+      !entity_id.nil? && (!sso_http_redirect_url.nil? && !sso_http_post_url.nil?) && !x509_certificate.nil?
     end
 
     def build_params
@@ -91,16 +91,12 @@ module SamlIdpMetadata
       return nil if services.empty?
 
       # If there's only one service
-      if services.size == 1
-        return services.first.attributes['Location']
-      end
+      return services.first.attributes['Location'] if services.size == 1
 
       # Find service with HTTP-Redirect binding
       services.each do |service|
         binding = service.attributes['Binding']
-        if binding == 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect'
-          return service.attributes['Location']
-        end
+        return service.attributes['Location'] if binding == 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect'
       end
 
       nil
@@ -111,16 +107,12 @@ module SamlIdpMetadata
       return nil if services.empty?
 
       # If there's only one service
-      if services.size == 1
-        return services.first.attributes['Location']
-      end
+      return services.first.attributes['Location'] if services.size == 1
 
       # Find service with HTTP-POST binding
       services.each do |service|
         binding = service.attributes['Binding']
-        if binding == 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST'
-          return service.attributes['Location']
-        end
+        return service.attributes['Location'] if binding == 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST'
       end
 
       nil
@@ -131,16 +123,12 @@ module SamlIdpMetadata
       return nil if services.empty?
 
       # If there's only one service
-      if services.size == 1
-        return services.first.attributes['Location']
-      end
+      return services.first.attributes['Location'] if services.size == 1
 
       # Find service with HTTP-Redirect binding
       services.each do |service|
         binding = service.attributes['Binding']
-        if binding == 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect'
-          return service.attributes['Location']
-        end
+        return service.attributes['Location'] if binding == 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect'
       end
 
       nil
@@ -204,11 +192,13 @@ module SamlIdpMetadata
 
     def find_element(elements, name)
       return nil if elements.nil?
+
       elements.to_a.find { |e| e.name == name }
     end
 
     def find_all_elements(elements, name)
       return [] if elements.nil?
+
       elements.to_a.select { |e| e.name == name }
     end
   end
