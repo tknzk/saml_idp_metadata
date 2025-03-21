@@ -6,7 +6,7 @@ require 'saml_idp_metadata/version'
 
 Gem::Specification.new do |spec|
   spec.name                  = 'saml_idp_metadata'
-  spec.required_ruby_version = '>= 3.0.0', '< 4'
+  spec.required_ruby_version = '>= 3.1', '< 4'
   spec.version               = SamlIdpMetadata::VERSION
   spec.authors               = ['tknzk']
   spec.email                 = ['info@tknzk.dev']
