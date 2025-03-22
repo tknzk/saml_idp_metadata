@@ -1,19 +1,13 @@
 version: 2.1
 
 executors:
-  working_directory: /root/saml_idp_metadata
-  ruby_3_4:
+  ruby:
+    parameters:
+      version:
+        type: string
     docker:
-      - image: rubylang/ruby:3.4-dev-focal
-  ruby_3_3:
-    docker:
-      - image: rubylang/ruby:3.3-dev-focal
-  ruby_3_2:
-    docker:
-      - image: rubylang/ruby:3.2-dev-focal
-  ruby_3_1:
-    docker:
-      - image: rubylang/ruby:3.1-dev-focal
+      - image: rubylang/ruby:<< parameters.version >>-dev-focal
+    working_directory: /root/saml_idp_metadata
 
 commands:
   install_system_dependencies:
@@ -45,30 +39,13 @@ commands:
           path: coverage
 
 jobs:
-  run_tests_on_ruby_3_4:
-    executor: ruby_3_4
-    steps:
-      - install_system_dependencies
-      - checkout
-      - bundle_gems
-      - run_tests
-  run_tests_on_ruby_3_3:
-    executor: ruby_3_3
-    steps:
-      - install_system_dependencies
-      - checkout
-      - bundle_gems
-      - run_tests
-  run_tests_on_ruby_3_2:
-    executor: ruby_3_2
-    steps:
-      - install_system_dependencies
-      - checkout
-      - bundle_gems
-      - run_tests
-
-  run_tests_on_ruby_3_1:
-    executor: ruby_3_1
+  test:
+    parameters:
+      ruby-version:
+        type: string
+    executor:
+      name: ruby
+      version: << parameters.ruby-version >>
     steps:
       - install_system_dependencies
       - checkout
@@ -79,7 +56,11 @@ workflows:
   version: 2
   test:
     jobs:
-      - run_tests_on_ruby_3_4
-      - run_tests_on_ruby_3_3
-      - run_tests_on_ruby_3_2
-      - run_tests_on_ruby_3_1
+      - test:
+          matrix:
+            parameters:
+              ruby-version:
+                - "3.1"
+                - "3.2"
+                - "3.3"
+                - "3.4"
