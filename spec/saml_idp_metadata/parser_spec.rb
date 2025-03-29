@@ -14,14 +14,17 @@ describe SamlIdpMetadata::Parser do
 
     context 'when valid xml w/ EntitiesDescriptor' do
       let(:xml) do
-        File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid_entities_descriptor.xml'))
+        File.read(File.join(File.dirname(__FILE__), '..', 'fixtures',
+                            'saml_idp_metadata_valid_entities_descriptor.xml'))
       end
 
       it { is_expected.to be_truthy }
     end
 
     context 'when invalid xml' do
-      let(:xml) { File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_invalid_xmlns.xml')) }
+      let(:xml) do
+        File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_invalid_xmlns.xml'))
+      end
 
       it { is_expected.to be_falsey }
     end
@@ -38,7 +41,8 @@ describe SamlIdpMetadata::Parser do
 
     context 'when valid xml w/ entities_descriptor' do
       let(:xml) do
-        File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid_entities_descriptor.xml'))
+        File.read(File.join(File.dirname(__FILE__), '..', 'fixtures',
+                            'saml_idp_metadata_valid_entities_descriptor.xml'))
       end
 
       it { is_expected.to be_truthy }
@@ -68,7 +72,8 @@ describe SamlIdpMetadata::Parser do
 
     context 'when valid xml w/ EntitiesDescriptor' do
       let(:xml) do
-        File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid_entities_descriptor.xml'))
+        File.read(File.join(File.dirname(__FILE__), '..', 'fixtures',
+                            'saml_idp_metadata_valid_entities_descriptor.xml'))
       end
 
       it { is_expected.to eq 'https://example.com/auth/realms/issure_url' }
@@ -81,7 +86,9 @@ describe SamlIdpMetadata::Parser do
     end
 
     context 'when valid xml w/ sso single sign on service has 1 element. (like a SOME ONE xml metadata)' do
-      let(:xml) { File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid_someone.xml')) }
+      let(:xml) do
+        File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid_someone.xml'))
+      end
 
       it { is_expected.to eq 'https://ap.ssso.example.com/sso/someone.example.com' }
     end
@@ -99,7 +106,9 @@ describe SamlIdpMetadata::Parser do
     end
 
     context 'when invalid xml w/ entity_id is nil' do
-      let(:xml) { File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_invalid_entity_id.xml')) }
+      let(:xml) do
+        File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_invalid_entity_id.xml'))
+      end
 
       it { is_expected.to be_nil }
     end
@@ -116,7 +125,8 @@ describe SamlIdpMetadata::Parser do
 
     context 'when valid xml w/ EntitiesDescriptor' do
       let(:xml) do
-        File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid_entities_descriptor.xml'))
+        File.read(File.join(File.dirname(__FILE__), '..', 'fixtures',
+                            'saml_idp_metadata_valid_entities_descriptor.xml'))
       end
 
       it { is_expected.to eq 'https://example.com/auth/realms/key/protocol/saml' }
@@ -129,7 +139,9 @@ describe SamlIdpMetadata::Parser do
     end
 
     context 'when valid xml w/ sso single sign on service has 1 element. (like a SOME ONE xml metadata)' do
-      let(:xml) { File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid_someone.xml')) }
+      let(:xml) do
+        File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid_someone.xml'))
+      end
 
       it { is_expected.to eq 'https://ap.ssso.example.com/sso/someone.example.com/login' }
     end
@@ -147,7 +159,9 @@ describe SamlIdpMetadata::Parser do
     end
 
     context 'when invalid xml w/ entity_id is nil' do
-      let(:xml) { File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_invalid_entity_id.xml')) }
+      let(:xml) do
+        File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_invalid_entity_id.xml'))
+      end
 
       it { is_expected.to eq 'https://example.com/saml2/http-redirect/sso/99999' }
     end
@@ -164,7 +178,8 @@ describe SamlIdpMetadata::Parser do
 
     context 'when valid xml w/ EntitiesDescriptor' do
       let(:xml) do
-        File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid_entities_descriptor.xml'))
+        File.read(File.join(File.dirname(__FILE__), '..', 'fixtures',
+                            'saml_idp_metadata_valid_entities_descriptor.xml'))
       end
 
       it { is_expected.to eq 'https://example.com/auth/realms/key/protocol/saml' }
@@ -177,7 +192,9 @@ describe SamlIdpMetadata::Parser do
     end
 
     context 'when valid xml w/ sso single sign on service has 1 element. (like a SOME ONE xml metadata)' do
-      let(:xml) { File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid_someone.xml')) }
+      let(:xml) do
+        File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid_someone.xml'))
+      end
 
       it { is_expected.to eq 'https://ap.ssso.example.com/sso/someone.example.com/login' }
     end
@@ -195,7 +212,9 @@ describe SamlIdpMetadata::Parser do
     end
 
     context 'when invalid xml w/ entity_id is nil' do
-      let(:xml) { File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_invalid_entity_id.xml')) }
+      let(:xml) do
+        File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_invalid_entity_id.xml'))
+      end
 
       it { is_expected.to eq 'https://example.com/saml2/http-post/sso/99999' }
     end
@@ -212,7 +231,8 @@ describe SamlIdpMetadata::Parser do
 
     context 'when valid xml w/ EntitiesDescriptor' do
       let(:xml) do
-        File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid_entities_descriptor.xml'))
+        File.read(File.join(File.dirname(__FILE__), '..', 'fixtures',
+                            'saml_idp_metadata_valid_entities_descriptor.xml'))
       end
 
       it { is_expected.to eq 'X509Certificate-X509Certificate=' }
@@ -225,7 +245,9 @@ describe SamlIdpMetadata::Parser do
     end
 
     context 'when valid xml w/ sso single sign on service has 1 element. (like a SOME ONE xml metadata)' do
-      let(:xml) { File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid_someone.xml')) }
+      let(:xml) do
+        File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid_someone.xml'))
+      end
 
       it { is_expected.to eq 'Certificate000-Certificate000' }
     end
@@ -249,7 +271,9 @@ describe SamlIdpMetadata::Parser do
     end
 
     context 'when invalid xml w/ entity_id is nil' do
-      let(:xml) { File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_invalid_entity_id.xml')) }
+      let(:xml) do
+        File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_invalid_entity_id.xml'))
+      end
 
       it { is_expected.to eq 'X509Certificate-X509Certificate=' }
     end
@@ -266,14 +290,17 @@ describe SamlIdpMetadata::Parser do
 
     context 'when valid xml w/ EntitiesDescriptor' do
       let(:xml) do
-        File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid_entities_descriptor.xml'))
+        File.read(File.join(File.dirname(__FILE__), '..', 'fixtures',
+                            'saml_idp_metadata_valid_entities_descriptor.xml'))
       end
 
       it { is_expected.to eq 'https://example.com/auth/realms/key/protocol/saml' }
     end
 
     context 'when valid xml w/ multiple singlelogout line' do
-      let(:xml) { File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid_multiple_slo.xml')) }
+      let(:xml) do
+        File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid_multiple_slo.xml'))
+      end
 
       it { is_expected.to eq 'https://example.com/saml2/http-redirect/slo/99999' }
     end
@@ -285,7 +312,9 @@ describe SamlIdpMetadata::Parser do
     end
 
     context 'when valid xml w/ sso single sign on service has 1 element. (like a SOME ONE xml metadata)' do
-      let(:xml) { File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid_someone.xml')) }
+      let(:xml) do
+        File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid_someone.xml'))
+      end
 
       it { is_expected.to be_nil }
     end
@@ -309,7 +338,9 @@ describe SamlIdpMetadata::Parser do
     end
 
     context 'when invalid xml w/ entity_id is nil' do
-      let(:xml) { File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_invalid_entity_id.xml')) }
+      let(:xml) do
+        File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_invalid_entity_id.xml'))
+      end
 
       it { is_expected.to eq 'https://example.com/saml2/http-redirect/slo/99999' }
     end
@@ -326,14 +357,17 @@ describe SamlIdpMetadata::Parser do
 
     context 'when valid xml w/ EntitiesDescriptor' do
       let(:xml) do
-        File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid_entities_descriptor.xml'))
+        File.read(File.join(File.dirname(__FILE__), '..', 'fixtures',
+                            'saml_idp_metadata_valid_entities_descriptor.xml'))
       end
 
       it { is_expected.to eq 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress' }
     end
 
     context 'when valid xml w/ multiple singlelogout line' do
-      let(:xml) { File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid_multiple_slo.xml')) }
+      let(:xml) do
+        File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid_multiple_slo.xml'))
+      end
 
       it { is_expected.to eq 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress' }
     end
@@ -345,7 +379,9 @@ describe SamlIdpMetadata::Parser do
     end
 
     context 'when valid xml w/ sso single sign on service has 1 element. (like a SOME ONE xml metadata)' do
-      let(:xml) { File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid_someone.xml')) }
+      let(:xml) do
+        File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid_someone.xml'))
+      end
 
       it { is_expected.to eq 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress' }
     end
@@ -369,7 +405,9 @@ describe SamlIdpMetadata::Parser do
     end
 
     context 'when invalid xml w/ entity_id is nil' do
-      let(:xml) { File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_invalid_entity_id.xml')) }
+      let(:xml) do
+        File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_invalid_entity_id.xml'))
+      end
 
       it { is_expected.to eq 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress' }
     end
@@ -400,7 +438,8 @@ describe SamlIdpMetadata::Parser do
 
     context 'when valid xml w/ EntitiesDescriptor' do
       let(:xml) do
-        File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid_entities_descriptor.xml'))
+        File.read(File.join(File.dirname(__FILE__), '..', 'fixtures',
+                            'saml_idp_metadata_valid_entities_descriptor.xml'))
       end
 
       it 'includes correct entity_id' do
@@ -463,7 +502,9 @@ describe SamlIdpMetadata::Parser do
     end
 
     context 'when valid xml w/ sso single sign on service has 1 element. (like a SOME ONE xml metadata)' do
-      let(:xml) { File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid_someone.xml')) }
+      let(:xml) do
+        File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid_someone.xml'))
+      end
 
       it 'includes correct entity_id' do
         expect(build_params).to include(entity_id: 'https://ap.ssso.example.com/sso/someone.example.com')
@@ -527,7 +568,9 @@ describe SamlIdpMetadata::Parser do
     end
 
     context 'when invalid xml with missing entity_id' do
-      let(:xml) { File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_invalid_entity_id.xml')) }
+      let(:xml) do
+        File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_invalid_entity_id.xml'))
+      end
 
       it 'has nil entity_id' do
         expect(build_params[:entity_id]).to be_nil

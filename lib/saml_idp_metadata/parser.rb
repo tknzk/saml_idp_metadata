@@ -1,11 +1,10 @@
 # frozen_string_literal: true
 
-require 'active_support'
-require 'active_support/core_ext'
+require 'rexml/document'
 
 module SamlIdpMetadata
   #
-  # SAML IdP metadata parser
+  # SAML IdP metadata parser with REXML
   #
   class Parser
     attr_reader :xml, :xmlns, :entity_id, :sso_http_redirect_url, :sso_http_post_url, :slo_url, :nameid_format,
@@ -13,7 +12,7 @@ module SamlIdpMetadata
 
     def initialize(xml:)
       @xml = xml
-      @hash = Hash.from_xml(xml)
+      @doc = REXML::Document.new(xml)
 
       @xmlns = nil
       @entity_id = nil
@@ -30,10 +29,9 @@ module SamlIdpMetadata
 
     def call
       @xmlns = parse_xmlns
-
       @entity_id = parse_entity_id
       @sso_http_redirect_url = parse_sso_http_redirect_url
-      @sso_http_post_url = parse_sso_http_post_url.presence || parse_sso_http_redirect_url
+      @sso_http_post_url = parse_sso_http_post_url || parse_sso_http_redirect_url
       @slo_url = parse_slo_url
       @nameid_format = parse_nameid_format
       @x509_certificate = parse_x509_certificate
@@ -46,7 +44,7 @@ module SamlIdpMetadata
     end
 
     def ensure_params?
-      entity_id.present? && sso_http_redirect_url.present? && sso_http_post_url.present? && x509_certificate.present?
+      present?(entity_id) && present?(sso_http_redirect_url) && present?(sso_http_post_url) && present?(x509_certificate)
     end
 
     def build_params
@@ -64,78 +62,148 @@ module SamlIdpMetadata
     private
 
     def entity_descriptor
-      if @hash['EntitiesDescriptor'].present?
-        @hash['EntitiesDescriptor']['EntityDescriptor']
+      # Handle EntitiesDescriptor case
+      if @doc.root.name == 'EntitiesDescriptor'
+        find_with_namespace(@doc.root.elements, 'EntityDescriptor')
       else
-        @hash['EntityDescriptor']
+        @doc.root
       end
     end
 
     def parse_entity_id
-      entity_descriptor['entityID']
+      entity_descriptor&.attributes&.[]('entityID')
     end
 
     def parse_xmlns
-      entity_descriptor.key?('xmlns:md') ? entity_descriptor['xmlns:md'] : entity_descriptor['xmlns']
+      if entity_descriptor&.attributes&.[]('xmlns:md')
+        entity_descriptor.attributes['xmlns:md']
+      else
+        entity_descriptor&.attributes&.[]('xmlns')
+      end
+    end
+
+    def idp_descriptor
+      find_with_namespace(entity_descriptor&.elements, 'IDPSSODescriptor')
     end
 
     def parse_sso_http_redirect_url
-      return nil if entity_descriptor.dig('IDPSSODescriptor', 'SingleSignOnService').nil?
+      services = find_all_with_namespace(idp_descriptor&.elements, 'SingleSignOnService')
+      return nil if services.empty?
 
-      single_signon_services = entity_descriptor['IDPSSODescriptor']['SingleSignOnService']
+      # If there's only one service
+      return services.first.attributes['Location'] if services.size == 1
 
-      return single_signon_services['Location'] if single_signon_services.is_a?(Hash)
-
-      single_signon_services.each do |service|
-        return service['Location'] if service['Binding'] == 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect'
+      # Find service with HTTP-Redirect binding
+      services.each do |service|
+        binding = service.attributes['Binding']
+        return service.attributes['Location'] if binding == 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect'
       end
+
       nil
     end
 
     def parse_sso_http_post_url
-      return nil if entity_descriptor.dig('IDPSSODescriptor', 'SingleSignOnService').nil?
+      services = find_all_with_namespace(idp_descriptor&.elements, 'SingleSignOnService')
+      return nil if services.empty?
 
-      single_signon_services = entity_descriptor['IDPSSODescriptor']['SingleSignOnService']
+      # If there's only one service
+      return services.first.attributes['Location'] if services.size == 1
 
-      return single_signon_services['Location'] if single_signon_services.is_a?(Hash)
-
-      single_signon_services.each do |service|
-        return service['Location'] if service['Binding'] == 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST'
+      # Find service with HTTP-POST binding
+      services.each do |service|
+        binding = service.attributes['Binding']
+        return service.attributes['Location'] if binding == 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST'
       end
+
       nil
     end
 
     def parse_slo_url
-      return nil if entity_descriptor.dig('IDPSSODescriptor', 'SingleLogoutService').nil?
+      services = find_all_with_namespace(idp_descriptor&.elements, 'SingleLogoutService')
+      return nil if services.empty?
 
-      single_logout_services = entity_descriptor['IDPSSODescriptor']['SingleLogoutService']
+      # If there's only one service
+      return services.first.attributes['Location'] if services.size == 1
 
-      return single_logout_services['Location'] if single_logout_services.is_a?(Hash)
-
-      single_logout_services.each do |service|
-        return service['Location'] if service['Binding'] == 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect'
+      # Find service with HTTP-Redirect binding
+      services.each do |service|
+        binding = service.attributes['Binding']
+        return service.attributes['Location'] if binding == 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect'
       end
+
       nil
     end
 
     def parse_nameid_format
-      return nil if entity_descriptor.dig('IDPSSODescriptor', 'NameIDFormat').nil?
+      formats = find_all_with_namespace(idp_descriptor&.elements, 'NameIDFormat')
+      return nil if formats.empty?
 
-      if entity_descriptor['IDPSSODescriptor']['NameIDFormat'].instance_of?(Array)
-        entity_descriptor['IDPSSODescriptor']['NameIDFormat'].last
-      else
-        entity_descriptor['IDPSSODescriptor']['NameIDFormat']
-      end
+      # Return the last format if there are multiple
+      formats.last.text
     end
 
     def parse_x509_certificate
-      return nil if entity_descriptor.dig('IDPSSODescriptor', 'KeyDescriptor').nil?
+      key_descriptors = find_all_with_namespace(idp_descriptor&.elements, 'KeyDescriptor')
+      return nil if key_descriptors.empty?
 
-      if entity_descriptor['IDPSSODescriptor']['KeyDescriptor'].instance_of?(Array)
-        entity_descriptor['IDPSSODescriptor']['KeyDescriptor'].last['KeyInfo']['X509Data']['X509Certificate']
-      else
-        entity_descriptor['IDPSSODescriptor']['KeyDescriptor']['KeyInfo']['X509Data']['X509Certificate']
-      end
+      # Use the last key descriptor
+      key_descriptor = key_descriptors.last
+
+      # Navigate the XML structure to find the X509Certificate element
+      key_info = find_with_namespace(key_descriptor.elements, 'KeyInfo') ||
+                 find_element(key_descriptor.elements, 'ds:KeyInfo')
+
+      return nil unless key_info
+
+      x509_data = find_with_namespace(key_info.elements, 'X509Data') ||
+                  find_element(key_info.elements, 'ds:X509Data')
+
+      return nil unless x509_data
+
+      cert_element = find_with_namespace(x509_data.elements, 'X509Certificate') ||
+                     find_element(x509_data.elements, 'ds:X509Certificate')
+
+      cert_element&.text
+    end
+
+    # Helper methods to handle namespace variations
+    def find_with_namespace(elements, name)
+      return nil if elements.nil?
+
+      # Try with different namespace prefixes
+      element = find_element(elements, name) ||
+                find_element(elements, "md:#{name}") ||
+                find_element(elements, "saml:#{name}")
+
+      element
+    end
+
+    def find_all_with_namespace(elements, name)
+      return [] if elements.nil?
+
+      # Collect elements with different namespace prefixes
+      result = []
+      result.concat(find_all_elements(elements, name))
+      result.concat(find_all_elements(elements, "md:#{name}"))
+      result.concat(find_all_elements(elements, "saml:#{name}"))
+
+      result
+    end
+
+    def find_element(elements, name)
+      return nil if elements.nil?
+
+      elements.to_a.find { |e| e.name == name }
+    end
+
+    def find_all_elements(elements, name)
+      return [] if elements.nil?
+
+      elements.to_a.select { |e| e.name == name }
+    end
+
+    def present?(value)
+      value && !value.to_s.strip.empty?
     end
   end
 end
