@@ -44,7 +44,7 @@ module SamlIdpMetadata
     end
 
     def ensure_params?
-      !entity_id.nil? && (!sso_http_redirect_url.nil? && !sso_http_post_url.nil?) && !x509_certificate.nil?
+      !entity_id.nil? && !sso_http_redirect_url.nil? && !sso_http_post_url.nil? && !x509_certificate.nil?
     end
 
     def build_params
