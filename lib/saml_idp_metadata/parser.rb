@@ -44,7 +44,7 @@ module SamlIdpMetadata
     end
 
     def ensure_params?
-      !entity_id.nil? && !sso_http_redirect_url.nil? && !sso_http_post_url.nil? && !x509_certificate.nil?
+      present?(entity_id) && present?(sso_http_redirect_url) && present?(sso_http_post_url) && present?(x509_certificate)
     end
 
     def build_params
@@ -200,6 +200,10 @@ module SamlIdpMetadata
       return [] if elements.nil?
 
       elements.to_a.select { |e| e.name == name }
+    end
+
+    def present?(value)
+      value && !value.to_s.strip.empty?
     end
   end
 end
