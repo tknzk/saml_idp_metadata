@@ -1,5 +1,19 @@
 # Changelog
 
+## [v0.3.8](https://github.com/tknzk/saml_idp_metadata/tree/v0.3.8) (2025-03-29)
+
+[Full Changelog](https://github.com/tknzk/saml_idp_metadata/compare/v0.3.7...v0.3.8)
+
+**Merged pull requests:**
+
+- bumpup [\#235](https://github.com/tknzk/saml_idp_metadata/pull/235) ([tknzk](https://github.com/tknzk))
+- Obey rubocop [\#234](https://github.com/tknzk/saml_idp_metadata/pull/234) ([tknzk](https://github.com/tknzk))
+- bundle update [\#233](https://github.com/tknzk/saml_idp_metadata/pull/233) ([tknzk](https://github.com/tknzk))
+- refactor github actions [\#232](https://github.com/tknzk/saml_idp_metadata/pull/232) ([tknzk](https://github.com/tknzk))
+- refactor circleci config [\#231](https://github.com/tknzk/saml_idp_metadata/pull/231) ([tknzk](https://github.com/tknzk))
+- require ruby \>= 3.1 [\#230](https://github.com/tknzk/saml_idp_metadata/pull/230) ([tknzk](https://github.com/tknzk))
+- bundle update [\#229](https://github.com/tknzk/saml_idp_metadata/pull/229) ([tknzk](https://github.com/tknzk))
+
 ## [v0.3.7](https://github.com/tknzk/saml_idp_metadata/tree/v0.3.7) (2025-03-21)
 
 [Full Changelog](https://github.com/tknzk/saml_idp_metadata/compare/v0.3.6...v0.3.7)
