@@ -46,7 +46,7 @@ module SamlIdpMetadata
     end
 
     def ensure_params?
-      entity_id.present? && (sso_http_redirect_url.present? && sso_http_post_url.present?) && x509_certificate.present?
+      entity_id.present? && sso_http_redirect_url.present? && sso_http_post_url.present? && x509_certificate.present?
     end
 
     def build_params
