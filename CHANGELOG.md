@@ -1,5 +1,17 @@
 # Changelog
 
+## [v1.0.0](https://github.com/tknzk/saml_idp_metadata/tree/v1.0.0) (2025-05-26)
+
+[Full Changelog](https://github.com/tknzk/saml_idp_metadata/compare/v0.3.8...v1.0.0)
+
+**Merged pull requests:**
+
+- bumpup 1.0.0 [\#239](https://github.com/tknzk/saml_idp_metadata/pull/239) ([tknzk](https://github.com/tknzk))
+- Update ruby.yml [\#238](https://github.com/tknzk/saml_idp_metadata/pull/238) ([tknzk](https://github.com/tknzk))
+- Drop Ruby 3.1 support due to EOL [\#237](https://github.com/tknzk/saml_idp_metadata/pull/237) ([tknzk](https://github.com/tknzk))
+- bundle update [\#236](https://github.com/tknzk/saml_idp_metadata/pull/236) ([tknzk](https://github.com/tknzk))
+- remove dependency for active\_support [\#228](https://github.com/tknzk/saml_idp_metadata/pull/228) ([tknzk](https://github.com/tknzk))
+
 ## [v0.3.8](https://github.com/tknzk/saml_idp_metadata/tree/v0.3.8) (2025-03-29)
 
 [Full Changelog](https://github.com/tknzk/saml_idp_metadata/compare/v0.3.7...v0.3.8)
