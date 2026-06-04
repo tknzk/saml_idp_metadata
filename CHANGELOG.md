@@ -1,5 +1,14 @@
 # Changelog
 
+## [v1.0.1](https://github.com/tknzk/saml_idp_metadata/tree/v1.0.1) (2026-06-04)
+
+[Full Changelog](https://github.com/tknzk/saml_idp_metadata/compare/v1.0.0...v1.0.1)
+
+**Merged pull requests:**
+
+- bumpup [\#241](https://github.com/tknzk/saml_idp_metadata/pull/241) ([tknzk](https://github.com/tknzk))
+- Support Ruby 4.0 & Remove upper bound restriction on required\_ruby\_version [\#240](https://github.com/tknzk/saml_idp_metadata/pull/240) ([a5-stable](https://github.com/a5-stable))
+
 ## [v1.0.0](https://github.com/tknzk/saml_idp_metadata/tree/v1.0.0) (2025-05-26)
 
 [Full Changelog](https://github.com/tknzk/saml_idp_metadata/compare/v0.3.8...v1.0.0)
