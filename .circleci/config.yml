@@ -59,6 +59,7 @@ jobs:
       version: << parameters.ruby-version >>
     steps:
       - install_system_dependencies
+      - configure_ssh
       - checkout
       - bundle_gems
       - run_tests
