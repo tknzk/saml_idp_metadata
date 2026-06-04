@@ -6,7 +6,7 @@ executors:
       version:
         type: string
     docker:
-      - image: rubylang/ruby:<< parameters.version >>-dev-focal
+      - image: rubylang/ruby:<< parameters.version >>-dev-noble
     working_directory: /root/saml_idp_metadata
 
 commands:
@@ -60,6 +60,6 @@ workflows:
           matrix:
             parameters:
               ruby-version:
-                - "3.2"
                 - "3.3"
                 - "3.4"
+                - "4.0"
