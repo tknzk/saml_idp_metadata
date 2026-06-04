@@ -18,16 +18,19 @@ commands:
           # https://circleci.com/docs/2.0/custom-images/#required-tools-for-primary-containers
           command: apt-get update -y && apt-get install -y ssh
 
-  configure_ssh:
-    description: "Allow legacy ssh-rsa for checkout"
+  checkout_code:
+    description: "Checkout using the Ed25519 deploy key (Additional SSH Key)"
     steps:
+      # Adds all Additional SSH Keys registered for this project to the agent.
+      # The Ed25519 deploy key avoids the RSA/SHA-1 issue on the noble image.
+      - add_ssh_keys
       - run:
-          name: Configure SSH
-          # OpenSSH 8.8+ (noble) disables ssh-rsa (RSA-SHA1) by default,
-          # which breaks checkout with CircleCI's RSA deploy key.
+          name: Checkout
           command: |
             mkdir -p ~/.ssh
-            printf 'Host github.com\n  PubkeyAcceptedAlgorithms +ssh-rsa\n  HostKeyAlgorithms +ssh-rsa\n' >> ~/.ssh/config
+            ssh-keyscan github.com >> ~/.ssh/known_hosts 2>/dev/null
+            git clone --no-checkout git@github.com:tknzk/saml_idp_metadata.git .
+            git checkout -f "$CIRCLE_SHA1"
 
   bundle_gems:
     description: "Bundle gems"
@@ -59,8 +62,7 @@ jobs:
       version: << parameters.ruby-version >>
     steps:
       - install_system_dependencies
-      - configure_ssh
-      - checkout
+      - checkout_code
       - bundle_gems
       - run_tests
 
