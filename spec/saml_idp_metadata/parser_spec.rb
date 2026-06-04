@@ -3,8 +3,8 @@
 require 'spec_helper'
 
 describe SamlIdpMetadata::Parser do
-  describe '.validate_xmlns' do
-    subject { described_class.call(xml: xml).validate_xmlns }
+  describe '.validate_xmlns?' do
+    subject { described_class.call(xml: xml).validate_xmlns? }
 
     context 'when valid xml' do
       let(:xml) { File.read(File.join(File.dirname(__FILE__), '..', 'fixtures', 'saml_idp_metadata_valid.xml')) }
