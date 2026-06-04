@@ -6,7 +6,7 @@ executors:
       version:
         type: string
     docker:
-      - image: rubylang/ruby:<< parameters.version >>-dev-focal
+      - image: rubylang/ruby:<< parameters.version >>-dev-noble
     working_directory: /root/saml_idp_metadata
 
 commands:
@@ -17,6 +17,20 @@ commands:
           name: Install System Dependencies
           # https://circleci.com/docs/2.0/custom-images/#required-tools-for-primary-containers
           command: apt-get update -y && apt-get install -y ssh
+
+  checkout_code:
+    description: "Checkout using the Ed25519 deploy key (Additional SSH Key)"
+    steps:
+      # Adds all Additional SSH Keys registered for this project to the agent.
+      # The Ed25519 deploy key avoids the RSA/SHA-1 issue on the noble image.
+      - add_ssh_keys
+      - run:
+          name: Checkout
+          command: |
+            mkdir -p ~/.ssh
+            ssh-keyscan github.com >> ~/.ssh/known_hosts 2>/dev/null
+            git clone --no-checkout git@github.com:tknzk/saml_idp_metadata.git .
+            git checkout -f "$CIRCLE_SHA1"
 
   bundle_gems:
     description: "Bundle gems"
@@ -48,7 +62,7 @@ jobs:
       version: << parameters.ruby-version >>
     steps:
       - install_system_dependencies
-      - checkout
+      - checkout_code
       - bundle_gems
       - run_tests
 
@@ -60,6 +74,6 @@ workflows:
           matrix:
             parameters:
               ruby-version:
-                - "3.2"
                 - "3.3"
                 - "3.4"
+                - "4.0"
