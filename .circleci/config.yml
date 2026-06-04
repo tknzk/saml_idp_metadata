@@ -18,6 +18,17 @@ commands:
           # https://circleci.com/docs/2.0/custom-images/#required-tools-for-primary-containers
           command: apt-get update -y && apt-get install -y ssh
 
+  configure_ssh:
+    description: "Allow legacy ssh-rsa for checkout"
+    steps:
+      - run:
+          name: Configure SSH
+          # OpenSSH 8.8+ (noble) disables ssh-rsa (RSA-SHA1) by default,
+          # which breaks checkout with CircleCI's RSA deploy key.
+          command: |
+            mkdir -p ~/.ssh
+            printf 'Host github.com\n  PubkeyAcceptedAlgorithms +ssh-rsa\n  HostKeyAlgorithms +ssh-rsa\n' >> ~/.ssh/config
+
   bundle_gems:
     description: "Bundle gems"
     steps:
