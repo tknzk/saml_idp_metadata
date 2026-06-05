@@ -6,7 +6,7 @@ require 'saml_idp_metadata/version'
 
 Gem::Specification.new do |spec|
   spec.name                  = 'saml_idp_metadata'
-  spec.required_ruby_version = '>= 3.2'
+  spec.required_ruby_version = '>= 3.3'
   spec.version               = SamlIdpMetadata::VERSION
   spec.authors               = ['tknzk']
   spec.email                 = ['info@tknzk.dev']
@@ -27,7 +27,7 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'rexml'
 
-  spec.add_development_dependency 'bundler', '~> 2'
+  spec.add_development_dependency 'bundler', '~> 4'
   spec.add_development_dependency 'pry'
   spec.add_development_dependency 'rake'
   spec.add_development_dependency 'rspec'

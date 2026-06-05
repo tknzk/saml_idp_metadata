@@ -39,7 +39,7 @@ module SamlIdpMetadata
       self
     end
 
-    def validate_xmlns
+    def validate_xmlns?
       xmlns == 'urn:oasis:names:tc:SAML:2.0:metadata'
     end
 
